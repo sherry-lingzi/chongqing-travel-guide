@@ -1,0 +1,1251 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>重庆漫游手册 · 10月16—21日</title>
+    <meta
+      name="description"
+      content="重庆大学会议、武隆与重庆城市文化漫游：六日公共交通行程手册。"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23162739'/%3E%3Ctext x='5' y='23' font-size='22' fill='%23e2bd65'%3E山%3C/text%3E%3C/svg%3E"
+    />
+    <style>
+      :root {
+        --bg: #f3f6fa;
+        --card: #fff;
+        --ink: #162739;
+        --muted: #526475;
+        --line: #dce3eb;
+        --gold: #996d0a;
+        --tint: #eaf1f8;
+        --alert: #fff0cc;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font:
+          16px/1.8 system-ui,
+          -apple-system,
+          "Microsoft YaHei",
+          sans-serif;
+      }
+      a {
+        color: #176797;
+        text-underline-offset: 4px;
+      }
+      header {
+        background: #162739;
+        color: #f9fafc;
+        padding: 26px max(20px, calc((100vw - 1040px) / 2));
+        border-bottom: 4px solid #dab66a;
+      }
+      header p {
+        margin: 4px 0;
+        color: #d2ddea;
+      }
+      h1 {
+        font-size: clamp(25px, 4vw, 36px);
+        margin: 0;
+        letter-spacing: 0.03em;
+      }
+      h2 {
+        font-size: 23px;
+        margin: 0 0 15px;
+      }
+      h3 {
+        font-size: 19px;
+        margin: 0 0 5px;
+      }
+      p {
+        margin: 8px 0;
+      }
+      main {
+        max-width: 1080px;
+        padding: 24px 20px 55px;
+        margin: auto;
+      }
+      section {
+        margin: 0 0 26px;
+      }
+      .card,
+      .day {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 23px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .eyebrow {
+        font-size: 14px;
+        color: var(--muted);
+        letter-spacing: 0.07em;
+      }
+      .focus {
+        background: #162739;
+        color: #fff;
+        border: 0;
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .focus .eyebrow,
+      .focus .muted {
+        color: #c8d5e4;
+      }
+      .clock {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        font-variant-numeric: tabular-nums;
+      }
+      .clock span {
+        font-size: 32px;
+        color: #edc979;
+        line-height: 1.3;
+      }
+      .clock small {
+        display: block;
+        font-size: 13px;
+        color: #cad6e5;
+      }
+      .muted {
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .pill,
+      .status-label {
+        display: inline-block;
+        font-size: 13px;
+        padding: 2px 9px;
+        background: var(--tint);
+        color: var(--ink);
+        border-radius: 6px;
+        margin: 2px 3px 2px 0;
+      }
+      .status-label {
+        background: #edc979;
+        color: #162739;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+      }
+      .warning {
+        background: var(--alert);
+        border-left: 4px solid #c79831;
+        padding: 15px 18px;
+        border-radius: 6px;
+        margin: 16px 0;
+      }
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 17px 0;
+      }
+      .nav a,
+      button,
+      .maplink {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 8px 13px;
+        background: var(--card);
+        color: var(--ink);
+        font: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+      }
+      button:hover,
+      .nav a:hover {
+        background: var(--tint);
+      }
+      button:focus-visible,
+      a:focus-visible,
+      summary:focus-visible {
+        outline: 3px solid #caa34c;
+        outline-offset: 4px;
+      }
+      .day {
+        margin-bottom: 20px;
+        border-top: 5px solid var(--day);
+      }
+      .day-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+      .stay {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .timeline {
+        margin-top: 15px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 148px minmax(0, 1fr);
+        gap: 18px;
+        padding: 17px 0;
+        border-top: 1px solid var(--line);
+      }
+      .time {
+        color: var(--day);
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .row p {
+        margin: 4px 0 8px;
+      }
+      .links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        font-size: 14px;
+      }
+      .map svg {
+        width: 100%;
+        height: auto;
+        display: block;
+        min-height: 120px;
+      }
+      .map svg text {
+        font: 15px system-ui;
+        fill: var(--ink);
+      }
+      .map .secondary {
+        font-size: 12px;
+        fill: var(--muted);
+      }
+      .map svg a {
+        cursor: pointer;
+      }
+      .map svg a:hover circle {
+        stroke: var(--gold);
+        stroke-width: 4;
+      }
+      details {
+        margin-top: 12px;
+      }
+      summary {
+        cursor: pointer;
+        color: var(--gold);
+        font-weight: 600;
+        padding: 8px 0;
+      }
+      .place-links {
+        display: grid;
+        gap: 7px;
+        margin: 12px 0;
+      }
+      .place-links > div {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        flex-wrap: wrap;
+        border-top: 1px dashed var(--line);
+        padding-top: 7px;
+      }
+      .place-links span {
+        flex: 1 1 180px;
+        font-size: 14px;
+      }
+      .place-links a {
+        font-size: 13px;
+        white-space: nowrap;
+      }
+      .map-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .route-label {
+        width: 100%;
+        margin: 5px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .booking {
+        margin-top: 12px;
+        border-top: 1px solid var(--line);
+        padding-top: 12px;
+      }
+      ul {
+        padding-left: 23px;
+      }
+      li {
+        margin: 10px 0;
+      }
+      footer {
+        font-size: 14px;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+        padding-top: 16px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 15px;
+      }
+      td,
+      th {
+        text-align: left;
+        border-bottom: 1px solid var(--line);
+        padding: 11px 8px;
+        vertical-align: top;
+      }
+      th {
+        color: var(--muted);
+      }
+      .tablewrap {
+        overflow: auto;
+      }
+      .budget {
+        font-variant-numeric: tabular-nums;
+      }
+      #overview {
+        background: var(--card);
+      }
+      @media (max-width: 650px) {
+        main {
+          padding: 16px 13px 35px;
+        }
+        .card,
+        .day {
+          padding: 18px 16px;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .focus {
+          display: block;
+        }
+        .clock {
+          margin-top: 16px;
+          gap: 20px;
+        }
+        .row {
+          grid-template-columns: 1fr;
+          gap: 3px;
+        }
+        .time {
+          font-size: 14px;
+        }
+        header {
+          padding: 22px 18px;
+        }
+        .map svg text {
+          font-size: 14px;
+        }
+        .map .secondary {
+          font-size: 12px;
+        }
+        h2 {
+          font-size: 21px;
+        }
+      }
+      html[data-theme="dark"] {
+        --bg: #0e1824;
+        --card: #162432;
+        --ink: #e4ecf4;
+        --muted: #a6b6c6;
+        --line: #304253;
+        --gold: #e7c16a;
+        --tint: #24394c;
+        --alert: #3d3219;
+      }
+      html[data-theme="dark"] a {
+        color: #8cc9ed;
+      }
+      html[data-theme="dark"] .time {
+        color: #e7c16a;
+      }
+      @media print {
+        header {
+          color: #000;
+          background: #fff;
+        }
+        header p {
+          color: #333;
+        }
+        .focus {
+          background: #fff;
+          color: #000;
+        }
+        .focus .eyebrow,
+        .focus .muted,
+        .clock small {
+          color: #444;
+        }
+        .clock span {
+          color: #000;
+        }
+        .nav,
+        button,
+        .map-actions {
+          display: none;
+        }
+        .day {
+          break-inside: avoid;
+        }
+        body {
+          background: #fff;
+        }
+        main {
+          max-width: 100%;
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="eyebrow" style="color: #e8c77e">
+        2026 · 独自出行 · 公共交通
+      </div>
+      <h1>重庆漫游手册</h1>
+      <p>10月16—21日 / 会议、书店、山城与武隆</p>
+    </header>
+    <main>
+      <section class="card focus" aria-label="此刻关注">
+        <div>
+          <div class="eyebrow">此刻关注 · 北京时间 UTC+8</div>
+          <span class="status-label" id="next-kind">正在读取</span>
+          <h2 id="next-title">正在读取行程</h2>
+          <p id="next-time"></p>
+          <p class="muted" id="next-note"></p>
+        </div>
+        <div class="clock" id="countdown" aria-live="off"></div>
+      </section>
+      <nav class="nav" aria-label="手册导航">
+        <a href="#overview">总览地图</a><a href="#bookings">预订状态</a
+        ><a href="#daily">逐日行程</a><a href="#todos">待办清单</a
+        ><a href="#tips">实用贴士</a>
+      </nav>
+      <section id="overview" class="card">
+        <h2>六天怎么走</h2>
+        <p>
+          16—18日会议；19—20日武隆；21日博物馆与山城巷，晚上离开。把山间交通放在返程前一天完成，给最后一天留足缓冲。
+        </p>
+        <div class="warning">
+          所有游览时段均为规划窗口。机票、酒店、高铁与景区门票均未订；会议场次及报告时间待公布。暂以21日21:00或以后起飞规划，不能据此认定已有航班。
+        </div>
+        <div id="overview-map" class="map"></div>
+        <p class="muted">
+          示意图不按比例，不用于判断距离或步行方向；彩线代表每天的行程，圆点可打开地图。路线导航需要网络，手册正文与示意图可离线阅读。
+        </p>
+        <div class="tablewrap">
+          <table>
+            <thead>
+              <tr>
+                <th>日期</th>
+                <th>主线</th>
+                <th>住宿区域（均未订）</th>
+              </tr>
+            </thead>
+            <tbody id="overview-table"></tbody>
+          </table>
+        </div>
+      </section>
+      <section id="bookings" class="card">
+        <h2>预订与已知安排</h2>
+        <div class="grid">
+          <div>
+            <h3>航班 · 未订</h3>
+            <p>
+              去程拟定：10月16日12:40南京禄口出发，15:00抵重庆江北。航班号、航站楼待确认。
+            </p>
+            <p>
+              返程建议：10月21日21:00或以后；若不愿深夜抵南京，延至22日更从容。
+            </p>
+          </div>
+          <div>
+            <h3>会议 · 地点与报到窗口已知</h3>
+            <p>
+              重庆大学沙坪坝校区A校园。10月16日14:00—20:00可报到，办理后即可离开；17—18日论坛与报告具体时段待公布。
+            </p>
+            <p class="muted">
+              博雅书院可作为校区参考点，具体报到房间、会场与入口待会务通知。
+            </p>
+          </div>
+        </div>
+        <div class="booking">
+          <h3>五晚住宿 · 未订</h3>
+          <p>
+            16、17日晚：重庆大学A区附近；18日晚：较场口 /
+            七星岗；19日晚：武隆仙女山游客接待中心附近；20日晚：较场口 /
+            七星岗。21日晚暂不住重庆。
+          </p>
+          <p>
+            可询问18日晚入住的市区酒店，能否替20日晚回住的客人隔夜寄存大箱子；取得明确同意后再只带小包去武隆。
+          </p>
+        </div>
+        <div class="booking">
+          <h3>高铁与景区 · 未订</h3>
+          <p>
+            19日重庆东 → 武隆南、20日武隆南 →
+            重庆东；天生三桥与仙女山国家森林公园需购票，龙水峡地缝为可选。车次、接驳班次与票价出行前核对。
+          </p>
+          <p>
+            三峡博物馆主馆免费，最新官方公告已取消预约，凭有效身份证件入馆；不必购买所谓“预约服务”。临时展览另看公告。
+          </p>
+        </div>
+      </section>
+      <section id="daily">
+        <h2>逐日行程</h2>
+        <p class="muted">
+          以下时间统一为
+          Asia/Shanghai（UTC+8）。每一天可展开路线图、每个点位的高德与 Google
+          地图入口，以及按本地段拆分的多点路线；跨城铁路、公共交通和景区接驳仍需逐段查询。
+        </p>
+        <div id="days"></div>
+      </section>
+      <section id="todos" class="card">
+        <h2>待办清单</h2>
+        <ul>
+          <li>确认去程是否购买12:40—15:00航班，补充航班号与航站楼。</li>
+          <li>
+            优先看21日晚返程价格、南京落地时间和回家交通；如果晚归不方便，选22日返程。
+          </li>
+          <li>收到会议日程后补充自己的报告时间、要听的论坛及报到具体地点。</li>
+          <li>
+            按五晚住宿区域选酒店，核对地铁出口到酒店是否有长台阶、是否有电梯与行李寄存。
+          </li>
+          <li>
+            12306放票后选19日上午去武隆、20日下午回重庆的实际车次，再改每日出发时间。
+          </li>
+          <li>
+            出发前核对武隆旅游专线站点、运行时段和景区最晚入园时间；天气差时取消地缝。
+          </li>
+          <li>复核三峡博物馆临时公告与重庆书城国泰广场B2的营业信息。</li>
+          <li>
+            带身份证、适合湿滑步道的鞋、雨具、山上保暖外套、充电宝与离线报告文件。
+          </li>
+        </ul>
+        <p class="muted">
+          这里是共用的纯列表，没有设备本地勾选状态；完成事项后可统一更新手册。
+        </p>
+      </section>
+      <section id="tips" class="card">
+        <h2>实用贴士</h2>
+        <div class="grid">
+          <div>
+            <h3>公共交通与步行</h3>
+            <p>
+              重庆市区以地铁、公交加步行为主。共享单车只用于平缓、允许骑行的路段；渝中坡地、桥隧和台阶不能按地图直线距离判断。站内换乘与出站后的高差，也要留时间。
+            </p>
+            <p>
+              地点提供高德和Google地图入口。国内优先用高德核对公交、地铁和出入口；Google多点链接只辅助查看点位顺序，不能代替高铁或景区专线导航。
+            </p>
+          </div>
+          <div>
+            <h3>武隆的三个位置</h3>
+            <p>
+              武隆南站是高铁站；仙女山街道游客接待中心是上山后的住宿和景区换乘区域；仙女山国家森林公园仍需继续前往。买票、订酒店和叫车时都写全名称。
+            </p>
+            <p>
+              山上雨雾、降温和候车会影响游览。若19日抵游客中心已过14:00，优先只游天生三桥；如连三桥也无法完成，改20日上午，取消仙女山或延长一天。
+            </p>
+          </div>
+          <div>
+            <h3>文化主线怎么取舍</h3>
+            <p>
+              书店留约一小时，博物馆留三小时，山城巷留一个半小时。2025年报道显示重庆书城旧址预计2027年回归，过渡卖场设在国泰广场B2，营业时间为10:00—22:00；2026年出发前仍须复核现址和营业时间，不直接导航旧址。
+            </p>
+            <p>
+              十八梯与山城巷可二选一。李子坝、鹅岭贰厂、鹅岭公园都值得看，但六日主线先保证会议、书店、博物馆与武隆；若延至22日，再加城市半天，不把它们全部塞进返程日。
+            </p>
+          </div>
+          <div>
+            <h3>要不要多住一天</h3>
+            <p>
+              六日足以完成当前主线，但完整游览三桥、地缝、仙女山以及李子坝、鹅岭，需要更多余量。若希望兼顾这些点，建议22日返程：21日完整城市文化日，22日半天补游后去机场。
+            </p>
+            <p>
+              若21日下午起飞：上午博物馆，午后取行李去机场，取消山城巷。天气或会议变动时，先删可选点，再调整主线。
+            </p>
+          </div>
+        </div>
+        <h3 style="margin-top: 22px">预算先留多少</h3>
+        <p class="muted">
+          以下只是选房和控制花费的规划额度，不是实时报价，不含南京往返机票、购物或会议收费。
+        </p>
+        <div class="tablewrap budget">
+          <table>
+            <thead>
+              <tr>
+                <th>项目</th>
+                <th>规划额度 / 人</th>
+                <th>说明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>五晚住宿</td>
+                <td>¥900—1,500</td>
+                <td>按每晚¥180—300筛选，实际价格另查</td>
+              </tr>
+              <tr>
+                <td>餐饮</td>
+                <td>¥360—600</td>
+                <td>六天按¥60—100 / 天，首尾日可能更少</td>
+              </tr>
+              <tr>
+                <td>市内交通、高铁与武隆接驳</td>
+                <td>¥200—400</td>
+                <td>为候车变化和少量打车留余量</td>
+              </tr>
+              <tr>
+                <td>景区与机动费用</td>
+                <td>¥300—500</td>
+                <td>含收费景区、内部交通和缓冲额度</td>
+              </tr>
+              <tr>
+                <td><strong>合计</strong></td>
+                <td><strong>¥1,760—3,000</strong></td>
+                <td>实际订单确定后再精算</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 style="margin-top: 22px">资料与核对入口</h3>
+        <p class="muted">
+          公开资料核对日期：2026年10月2日。开放、班次和票价以出行日最新公告为准。
+        </p>
+        <ul id="sources"></ul>
+      </section>
+      <footer>
+        时间统一为北京时间 UTC+8 · 正文与示意地图可离线使用 · 导航与订票需联网。
+        <p>
+          <a href="https://www.12306.cn/" target="_blank" rel="noopener"
+            >12306</a
+          >
+          ·
+          <a href="https://www.3gmuseum.cn/" target="_blank" rel="noopener"
+            >三峡博物馆官网</a
+          >
+        </p>
+      </footer>
+    </main>
+    <script>
+      const DATA = {
+        days: [
+          {
+            date: "2026-10-16",
+            title: "抵达 · 报到 · 沙坪坝",
+            color: "#2579b0",
+            stay: "重庆大学A区附近｜未订",
+            places: [
+              "南京禄口国际机场",
+              "重庆江北国际机场",
+              "重庆大学A区博雅书院",
+              "沙坪坝三峡广场",
+            ],
+            note: "抵达后先办报到。晚间只安排近处吃饭，给报告准备留出时间。",
+            items: [
+              {
+                t: "12:40—15:00",
+                title: "南京 → 重庆",
+                text: "拟选航班，尚未购票；航班号、航站楼与托运行李规则待出票确认。",
+                place: "重庆江北国际机场",
+                status: "未订",
+                stamp: "2026-10-16T12:40:00+08:00",
+              },
+              {
+                t: "15:00—16:00",
+                title: "出机场",
+                text: "按落地后约45—60分钟规划出站与取行李，航班延误时优先压缩晚间活动。",
+                place: null,
+                status: "建议",
+                stamp: null,
+              },
+              {
+                t: "16:00—18:00",
+                title: "前往重庆大学A区并报到",
+                text: "公共交通预留约90—120分钟（含换乘与步行），可在地图核对10号线至重庆北站南广场、换环线至重庆大学站的方案。抵达校门后以会议通知的报到点为准。",
+                place: "重庆大学A区博雅书院",
+                status: "建议",
+                stamp: null,
+              },
+              {
+                t: "14:00—20:00",
+                title: "报到窗口",
+                text: "这是可办理报到的时间范围，不是需要全程参加的活动；拟在17:00—18:00完成。若航班延误，及时联系会务。",
+                place: "重庆大学A区博雅书院",
+                status: "已知窗口",
+                stamp: null,
+              },
+              {
+                t: "18:30—20:00",
+                title: "附近晚餐 / 三峡广场短逛",
+                text: "体力允许再去三峡广场；否则在酒店附近吃重庆小面，晚上检查报告文件。",
+                place: "沙坪坝三峡广场",
+                status: "建议",
+                stamp: null,
+              },
+            ],
+          },
+          {
+            date: "2026-10-17",
+            title: "会议 · 听论坛与自己的报告",
+            color: "#8866ba",
+            stay: "重庆大学A区附近｜未订",
+            places: ["重庆大学A区博雅书院"],
+            note: "整天保留给会议。自己的报告时间公布后，优先锁定报告与提前到场时间。",
+            items: [
+              {
+                t: "全天待定",
+                title: "听论坛 / 汇报",
+                text: "会议日程尚未公布，不把任何游览活动排成硬约束。准备离线PDF、PPT及备份。",
+                place: "重庆大学A区博雅书院",
+                status: "日程待公布",
+                stamp: null,
+              },
+              {
+                t: "晚间弹性",
+                title: "附近晚餐与休息",
+                text: "如有晚间论坛或学术交流，以会议安排为先，不强行增加跨区游览。",
+                place: null,
+                status: "建议",
+                stamp: null,
+              },
+            ],
+          },
+          {
+            date: "2026-10-18",
+            title: "会议 · 搬到渝中 · 书店与夜景",
+            color: "#b66133",
+            stay: "较场口 / 七星岗地铁站附近｜未订",
+            places: [
+              "重庆大学A区博雅书院",
+              "重庆较场口",
+              "重庆书城 国泰广场",
+              "重庆解放碑",
+              "重庆洪崖洞",
+            ],
+            note: "退房后把行李寄存于酒店；会议结束再取行李搬家。书店为主线，洪崖洞可删。",
+            items: [
+              {
+                t: "上午至下午待定",
+                title: "继续会议",
+                text: "听感兴趣的论坛并完成自己的报告；结束时间未定，以下晚间安排顺延。",
+                place: "重庆大学A区博雅书院",
+                status: "日程待公布",
+                stamp: null,
+              },
+              {
+                t: "会后约60—90分钟",
+                title: "转住渝中区",
+                text: "含取行李、轨道交通、步行与办理入住的规划缓冲；优先选靠近地铁、拖箱不用爬长台阶的酒店。",
+                place: "重庆较场口",
+                status: "建议",
+                stamp: null,
+              },
+              {
+                t: "晚餐后约60分钟",
+                title: "重庆书城 · 国泰广场B2",
+                text: "2025年报道显示，书城重装期间在国泰广场B2设过渡卖场，营业时间10:00—22:00；2026年10月是否仍在该处尚待出发前复核。逛文学、历史与重庆地方出版物；若会议晚结束，改到20日晚。",
+                place: "重庆书城 国泰广场",
+                status: "营业需复核",
+                stamp: null,
+              },
+              {
+                t: "随后30—45分钟",
+                title: "解放碑 / 洪崖洞夜景",
+                text: "解放碑可顺路散步；洪崖洞仅在有体力时追加，优先从外部看建筑与江景，不必挤进每一层。灯光时段以当天为准。",
+                place: "重庆洪崖洞",
+                status: "可选",
+                stamp: null,
+              },
+            ],
+          },
+          {
+            date: "2026-10-19",
+            title: "武隆 · 天生三桥",
+            color: "#198471",
+            stay: "仙女山街道游客接待中心附近｜未订",
+            places: [
+              "重庆东站",
+              "武隆南站",
+              "仙女山游客接待中心",
+              "武隆天生三桥",
+              "武隆龙水峡地缝",
+            ],
+            note: "周一避开三峡博物馆。天生三桥为核心；地缝仅在时间、天气与体力都允许时追加。",
+            items: [
+              {
+                t: "07:30—09:30",
+                title: "退房 → 重庆东站",
+                text: "示意窗口，需依12306实际车次改排。市区去车站、安检与进站合计预留约90—120分钟；不要只看高铁车程。",
+                place: "重庆东站",
+                status: "建议",
+                stamp: null,
+              },
+              {
+                t: "上午约35—60分钟",
+                title: "重庆东 → 武隆南",
+                text: "车次与席位尚未订。优先查重庆东—武隆南高铁，不把旧攻略中的“武隆站”与“武隆南站”混用。",
+                place: "武隆南站",
+                status: "需购票",
+                stamp: null,
+              },
+              {
+                t: "到站后约60—90分钟",
+                title: "景区接驳 · 寄存行李 · 午餐",
+                text: "先核对武隆南站是否有直达仙女山游客接待中心的地面接驳；为候车、上山、寄存和午餐整体预留60—90分钟。这不是已确认班次或固定车程，站点、票价、末班时间及行李寄存均待出发前确认。",
+                place: "仙女山游客接待中心",
+                status: "建议",
+                stamp: null,
+              },
+              {
+                t: "12:30—15:30",
+                title: "天生三桥慢慢走",
+                text: "预留约3小时（含换乘和拍照缓冲）。看天然桥与天坑地貌、天福官驿，也可以关注《变形金刚4》取景带来的科幻景观体验。入口以游客中心指定换乘流程为准。",
+                place: "武隆天生三桥",
+                status: "需购票",
+                stamp: null,
+              },
+              {
+                t: "15:30以后有条件追加",
+                title: "龙水峡地缝",
+                text: "只有完成三桥后仍有至少约2小时、景区允许入园、路况和体力合适时再去；当天到达偏晚便直接取消。不提前买不能退的联票锁死行程。",
+                place: "武隆龙水峡地缝",
+                status: "可选 / 需购票",
+                stamp: null,
+              },
+              {
+                t: "18:00以后",
+                title: "仙女山街道晚餐与休息",
+                text: "住游客中心周边，方便次日交通。仙女山街道属于武隆区；街道住宿区、森林公园、武隆城区是不同地点。",
+                place: null,
+                status: "建议",
+                stamp: null,
+              },
+            ],
+          },
+          {
+            date: "2026-10-20",
+            title: "仙女山 · 森林与草原 · 回重庆",
+            color: "#6f8734",
+            stay: "较场口 / 七星岗地铁站附近｜未订",
+            places: [
+              "仙女山游客接待中心",
+              "仙女山国家森林公园",
+              "武隆南站",
+              "重庆东站",
+              "重庆较场口",
+            ],
+            note: "上午只逛一个景区，午后回城。今天不再安排芙蓉洞、乌江画廊等跨区域景点。",
+            items: [
+              {
+                t: "08:00—09:00",
+                title: "早餐 · 寄存行李 · 去森林公园",
+                text: "请酒店确认当天去仙女山国家森林公园的公共交通与回程上车点。游客接待中心不等于森林公园入口。",
+                place: "仙女山国家森林公园",
+                status: "建议",
+                stamp: null,
+              },
+              {
+                t: "09:00—12:00",
+                title: "仙女山草原与森林",
+                text: "按天气与现场交通选择草原、林间步道；景区内部交通另查。不把网红公路全部走遍当成任务，留时间坐下来休息。",
+                place: "仙女山国家森林公园",
+                status: "需购票",
+                stamp: null,
+              },
+              {
+                t: "12:00—14:30",
+                title: "午餐 · 取行李 · 下山",
+                text: "包含酒店取行李、候车与前往武隆南站的缓冲。雨雾大或交通变化时，提早结束景区游览。",
+                place: "武隆南站",
+                status: "建议",
+                stamp: null,
+              },
+              {
+                t: "14:30—17:30",
+                title: "高铁回重庆 · 入住",
+                text: "这是规划窗口，需依据实际车次与酒店调整；高铁、回城交通和入住分段计算。",
+                place: "重庆较场口",
+                status: "需购票",
+                stamp: null,
+              },
+              {
+                t: "晚间约60分钟",
+                title: "书店补位 / 安静晚餐",
+                text: "18日晚没逛书店，就今晚去重庆书城国泰广场B2；已完成则只吃晚饭休息。李子坝、鹅岭不强塞在这一天。",
+                place: "重庆书城 国泰广场",
+                status: "建议",
+                stamp: null,
+              },
+            ],
+          },
+          {
+            date: "2026-10-21",
+            title: "博物馆 · 山城老街 · 晚间返程",
+            color: "#b08b24",
+            stay: "预计当晚返程｜机票未订",
+            places: [
+              "重庆中国三峡博物馆",
+              "重庆人民大礼堂",
+              "重庆山城巷",
+              "重庆十八梯传统风貌区",
+              "重庆江北国际机场",
+            ],
+            note: "以21:00或更晚起飞的航班为规划目标；这是建议，不是已出票航班。若选择下午起飞，删去老街游览。",
+            items: [
+              {
+                t: "08:00—09:00",
+                title: "退房并寄存行李 → 博物馆",
+                text: "大件行李留在酒店，轻装入馆。预先确认酒店可寄存至下午。",
+                place: "重庆中国三峡博物馆",
+                status: "建议",
+                stamp: null,
+              },
+              {
+                t: "09:00—12:00",
+                title: "重庆中国三峡博物馆",
+                text: "重点看巴渝文化、三峡与城市历史展陈，临展按当天信息选择。官网参观须知目前标注9:00—17:00、16:00后停止入馆、周一闭馆（法定节假日除外）；2025年9月30日公告已取消预约，凭有效身份证件入馆。临时安排以出行日前最新公告为准。",
+                place: "重庆中国三峡博物馆",
+                status: "免费 / 带证件",
+                stamp: null,
+              },
+              {
+                t: "12:00—13:00",
+                title: "人民大礼堂外观 · 午餐",
+                text: "大礼堂与博物馆相邻，外观即可；不把收费入内列为必去。然后坐公共交通去山城巷。",
+                place: "重庆人民大礼堂",
+                status: "建议",
+                stamp: null,
+              },
+              {
+                t: "13:30—15:00",
+                title: "山城巷慢逛",
+                text: "把历史肌理、坡地生活、步道与江景作为重点。这里有台阶，膝盖疲劳时改平缓路段；十八梯只是替换或有余力时追加。",
+                place: "重庆山城巷",
+                status: "建议",
+                stamp: null,
+              },
+              {
+                t: "15:00—16:00",
+                title: "取行李 · 准备去机场",
+                text: "如酒店距离较远或需要追加街区游览，提早结束山城巷；不要带大箱子逛台阶。",
+                place: null,
+                status: "建议",
+                stamp: null,
+              },
+              {
+                t: "16:30左右出发",
+                title: "公共交通前往江北机场",
+                text: "按21:00或以后起飞规划，建议约18:00—18:30抵达正确航站楼。市区到机场按90—120分钟估算，最终以地图和航空公司要求为准。机票更早则整体提前。",
+                place: "重庆江北国际机场",
+                status: "建议",
+                stamp: null,
+              },
+              {
+                t: "21:00以后目标",
+                title: "重庆 → 南京",
+                text: "返程未购票，南京到达时间、机场到家的交通和末班车都需一并核对。若不想晚归，推荐延至22日返程。",
+                place: null,
+                status: "未订",
+                stamp: null,
+              },
+            ],
+          },
+        ],
+        sources: [
+          [
+            "三峡博物馆：取消预约公告",
+            "https://www.3gmuseum.cn/web/article/1430010139317059584/web/content_1430010139317059584.html",
+          ],
+          [
+            "三峡博物馆：参观须知（含停止入馆时间）",
+            "https://www.3gmuseum.cn/web/article/1430010416905293824/web/content_1430010416905293824.html",
+          ],
+          [
+            "重庆书城：2025年国泰广场B2过渡卖场报道",
+            "https://www.cqnews.net/1/detail/1422866538635137024/app/content_1422866538635137024.html",
+          ],
+          [
+            "重庆大学博雅学院：联系地址",
+            "https://lac.cqu.edu.cn/xygk/lxxx.htm",
+          ],
+          [
+            "武隆高铁与景区接驳线索（非官方，班次需复核）",
+            "https://m.cq.bendibao.com/tour/154867.shtm",
+          ],
+          [
+            "仙女山交通线索（非官方，勿直接沿用旧时刻）",
+            "https://m.cq.bendibao.com/tour/90285.shtm",
+          ],
+          [
+            "鹅岭贰厂：渝中区官方介绍",
+            "https://www.cqyz.gov.cn/zjyz/lyyz/rmdkd/202202/t20220215_10397729.html",
+          ],
+        ],
+      };
+      const ROUTES = {
+        "2026-10-16": [
+          {
+            label: "重庆落地后的市内段",
+            places: [
+              "重庆江北国际机场",
+              "重庆大学A区博雅书院",
+              "沙坪坝三峡广场",
+            ],
+          },
+        ],
+        "2026-10-17": [
+          { label: "会议主地点", places: ["重庆大学A区博雅书院"] },
+        ],
+        "2026-10-18": [
+          {
+            label: "会后搬家与市内点位顺序",
+            places: [
+              "重庆大学A区博雅书院",
+              "重庆较场口",
+              "重庆书城 国泰广场",
+              "重庆解放碑",
+              "重庆洪崖洞",
+            ],
+          },
+        ],
+        "2026-10-19": [
+          {
+            label: "武隆南站到景区段（实际公共交通与景区换乘逐段确认）",
+            places: [
+              "武隆南站",
+              "仙女山游客接待中心",
+              "武隆天生三桥",
+              "武隆龙水峡地缝",
+            ],
+          },
+        ],
+        "2026-10-20": [
+          {
+            label: "武隆上午与下山段",
+            places: ["仙女山游客接待中心", "仙女山国家森林公园", "武隆南站"],
+          },
+          { label: "回到重庆后的市内段", places: ["重庆东站", "重庆较场口"] },
+        ],
+        "2026-10-21": [
+          {
+            label: "城市文化主线",
+            places: ["重庆中国三峡博物馆", "重庆人民大礼堂", "重庆山城巷"],
+          },
+          {
+            label: "返程示意（较场口仅代表取行李区域，按实际酒店改）",
+            places: ["重庆山城巷", "重庆较场口", "重庆江北国际机场"],
+          },
+        ],
+      };
+      const RAIL_DAYS = new Set(["2026-10-19", "2026-10-20"]);
+      const escapeHTML = (s) =>
+        String(s ?? "").replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+      const gm = (p) =>
+        "https://www.google.com/maps/search/?api=1&query=" +
+        encodeURIComponent(p);
+      const am = (p) =>
+        "https://uri.amap.com/search?keyword=" +
+        encodeURIComponent(p) +
+        "&city=" +
+        encodeURIComponent(p.includes("南京") ? "南京" : "重庆") +
+        "&view=map";
+      function links(p) {
+        return p
+          ? `<div class="links"><a target="_blank" rel="noopener" href="${am(p)}">高德地图 · ${escapeHTML(p)}</a><a target="_blank" rel="noopener" href="${gm(p)}">Google地图</a></div>`
+          : "";
+      }
+      function route(ps) {
+        const u = new URL("https://www.google.com/maps/dir/");
+        u.searchParams.set("api", "1");
+        u.searchParams.set("origin", ps[0]);
+        u.searchParams.set("destination", ps.at(-1));
+        if (ps.length > 2)
+          u.searchParams.set("waypoints", ps.slice(1, -1).join("|"));
+        return u.href;
+      }
+      function placeLinks(ps) {
+        return `<div class="place-links" aria-label="当天每个点位的地图入口">${ps.map((p) => `<div><span>${escapeHTML(p)}</span><a target="_blank" rel="noopener" href="${am(p)}">高德</a><a target="_blank" rel="noopener" href="${gm(p)}">Google</a></div>`).join("")}</div>`;
+      }
+      function routeActions(d) {
+        const groups = ROUTES[d.date] || [];
+        let html = groups
+          .map(
+            (g) =>
+              `<p class="route-label">${escapeHTML(g.label)}</p><a class="maplink" target="_blank" rel="noopener" href="${g.places.length > 1 ? route(g.places) : gm(g.places[0])}">${g.places.length > 1 ? "打开这一本地段的多点路线" : "打开当天主地点"}</a>`,
+          )
+          .join("");
+        if (RAIL_DAYS.has(d.date))
+          html += `<p class="route-label">重庆东站 ↔ 武隆南站高铁</p><a class="maplink" target="_blank" rel="noopener" href="https://www.12306.cn/">到12306单独查实际车次</a>`;
+        return html;
+      }
+      function sketch(ps, color) {
+        const h = ps.length * 74 + 28;
+        return `<svg viewBox="0 0 320 ${h}" role="img" aria-label="${escapeHTML(ps.join("，"))}，路线顺序示意图"><path d="M42 33 ${ps.map((p, i) => "L42 " + (i * 74 + 33)).join(" ")}" fill="none" stroke="${color}" stroke-width="3" stroke-dasharray="5 4"/>${ps.map((p, i) => `<a href="${gm(p)}" target="_blank" rel="noopener"><circle cx="42" cy="${i * 74 + 33}" r="9" fill="${color}"/><text x="66" y="${i * 74 + 39}">${escapeHTML(p)}</text><text class="secondary" x="66" y="${i * 74 + 59}">${i + 1} / 顺序示意 · 点击导航</text></a>`).join("")}</svg>`;
+      }
+      const weekday = (d) =>
+        new Intl.DateTimeFormat("zh-CN", {
+          weekday: "long",
+          timeZone: "Asia/Shanghai",
+        }).format(new Date(d + "T12:00:00+08:00"));
+      document.querySelector("#overview-map").innerHTML =
+        `<svg viewBox="0 0 320 515" role="img" aria-label="重庆市区至武隆区域示意，六日不同颜色路线"><path d="M245 48 Q125 25 62 115" fill="none" stroke="#2579b0" stroke-width="3" stroke-dasharray="5 4"/><path d="M62 115 c-35 -24 -35 25 0 0" fill="none" stroke="#8866ba" stroke-width="4"/><path d="M62 115 Q72 184 174 190" fill="none" stroke="#b66133" stroke-width="3"/><path d="M174 190 Q268 169 264 262 T120 366 Q127 420 244 448" fill="none" stroke="#198471" stroke-width="3" stroke-dasharray="7 4"/><path d="M244 458 Q84 465 110 366 Q80 277 254 252 Q230 193 174 200" fill="none" stroke="#6f8734" stroke-width="3" stroke-dasharray="5 4"/><path d="M174 190 Q287 152 245 48" fill="none" stroke="#b08b24" stroke-width="3"/>${[
+          ["重庆江北机场", 245, 48, "往返航站楼待确认"],
+          ["重庆大学A区", 62, 115, "16、17日晚住附近"],
+          ["渝中 · 较场口 / 七星岗", 174, 190, "18、20日晚住附近"],
+          ["重庆东站", 259, 257, "往返武隆的高铁站"],
+          ["武隆南站", 115, 366, "换乘上山旅游专线"],
+          ["仙女山游客中心", 240, 450, "19日晚住仙女山街道"],
+        ]
+          .map(
+            ([p, x, y, t]) =>
+              `<a href="${gm(p)}" target="_blank" rel="noopener"><circle cx="${x}" cy="${y}" r="7" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><text x="${Math.max(100, Math.min(200, x))}" y="${y + 25}" text-anchor="middle">${p}</text><text class="secondary" x="${Math.max(100, Math.min(200, x))}" y="${y + 44}" text-anchor="middle">${t}</text></a>`,
+          )
+          .join("")}</svg>`;
+      document.querySelector("#overview-table").innerHTML = DATA.days
+        .map(
+          (d) =>
+            `<tr><td>10/${d.date.slice(-2)}<br>${weekday(d.date)}</td><td>${escapeHTML(d.title)}</td><td>${escapeHTML(d.stay)}</td></tr>`,
+        )
+        .join("");
+      document.querySelector("#days").innerHTML = DATA.days
+        .map(
+          (d) =>
+            `<article class="day" style="--day:${d.color}" id="day-${d.date}"><div class="day-head"><div><div class="eyebrow">10月${d.date.slice(-2)}日 · ${weekday(d.date)} · UTC+8</div><h3>${escapeHTML(d.title)}</h3></div><div class="stay">${escapeHTML(d.stay)}</div></div><p>${escapeHTML(d.note)}</p><details><summary>展开当天路线地图与分段导航</summary><div class="map">${sketch(d.places, d.color)}</div>${placeLinks(d.places)}<div class="map-actions">${routeActions(d)}</div><p class="muted">示意图包含可选点，只表示计划顺序。多点链接不承诺公共交通可一次完成；铁路、机场交通、景区专线与内部换乘必须分别查询。</p></details><div class="timeline">${d.items.map((v) => `<div class="row"><div class="time">${escapeHTML(v.t)}</div><div><strong>${escapeHTML(v.title)}</strong> <span class="pill">${escapeHTML(v.status)}</span><p>${escapeHTML(v.text)}</p>${links(v.place)}</div></div>`).join("")}</div></article>`,
+        )
+        .join("");
+      document.querySelector("#sources").innerHTML = DATA.sources
+        .map(
+          ([t, u]) =>
+            `<li><a href="${u}" target="_blank" rel="noopener">${escapeHTML(t)}</a></li>`,
+        )
+        .join("");
+      const milestones = [
+        {
+          at: "2026-10-16T12:40:00+08:00",
+          kind: "拟定",
+          title: "去程 · 南京出发",
+          note: "机票未订。倒计时依据计划时间，不代表已出票。",
+        },
+        {
+          at: "2026-10-16T20:00:00+08:00",
+          kind: "已知窗口",
+          title: "报到窗口结束",
+          note: "10月16日14:00—20:00可报到；抵达后尽快办理。",
+        },
+        {
+          at: "2026-10-17T00:00:00+08:00",
+          kind: "日期提醒",
+          title: "进入会议日",
+          note: "这是当天日期提醒；会议开始时间和报告场次待公布。",
+        },
+        {
+          at: "2026-10-18T00:00:00+08:00",
+          kind: "日期提醒",
+          title: "会议第二天",
+          note: "日程待公布，搬家与晚间游览可顺延。",
+        },
+        {
+          at: "2026-10-19T00:00:00+08:00",
+          kind: "日期提醒",
+          title: "进入武隆出行日",
+          note: "只作日期提醒，高铁班次及实际出发时间待订。",
+        },
+        {
+          at: "2026-10-20T00:00:00+08:00",
+          kind: "日期提醒",
+          title: "仙女山与回城日",
+          note: "景区交通与高铁确定后补充实际时间。",
+        },
+        {
+          at: "2026-10-21T09:00:00+08:00",
+          kind: "建议",
+          title: "三峡博物馆",
+          note: "凭有效身份证件入馆；临时公告出发前复核。",
+        },
+      ];
+      function tick() {
+        let now = Date.now();
+        let e = milestones.find((v) => Date.parse(v.at) > now);
+        if (!e) {
+          document.querySelector("#next-kind").textContent = "待确认";
+          document.querySelector("#next-title").textContent =
+            "没有已确定的后续时间点";
+          document.querySelector("#next-time").textContent =
+            "21日晚返程未订，出票后补充航班时间。";
+          document.querySelector("#next-time").removeAttribute("data-target");
+          document.querySelector("#next-note").textContent =
+            "旅行日期结束后仍可阅读全部路线。";
+          document.querySelector("#countdown").innerHTML = "";
+          return;
+        }
+        let diff = Math.max(0, Math.floor((Date.parse(e.at) - now) / 1000));
+        let values = [
+          Math.floor(diff / 86400),
+          Math.floor((diff % 86400) / 3600),
+          Math.floor((diff % 3600) / 60),
+          diff % 60,
+        ];
+        document.querySelector("#next-kind").textContent = e.kind;
+        document.querySelector("#next-title").textContent = e.title;
+        document.querySelector("#next-time").textContent =
+          new Intl.DateTimeFormat("zh-CN", {
+            timeZone: "Asia/Shanghai",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+          }).format(new Date(e.at)) +
+          " · Asia/Shanghai · " +
+          e.at;
+        document.querySelector("#next-time").dataset.target = e.at;
+        document.querySelector("#next-note").textContent = e.note;
+        document.querySelector("#countdown").innerHTML = values
+          .map(
+            (v, i) =>
+              `<div><span>${String(v).padStart(2, "0")}</span><small>${["天", "时", "分", "秒"][i]}</small></div>`,
+          )
+          .join("");
+      }
+      function theme() {
+        const h = Number(
+          new Intl.DateTimeFormat("en-GB", {
+            timeZone: "Asia/Shanghai",
+            hour: "2-digit",
+            hour12: false,
+          }).format(new Date()),
+        );
+        document.documentElement.dataset.theme =
+          h >= 18 || h < 7 ? "dark" : "light";
+      }
+      tick();
+      theme();
+      setInterval(tick, 1000);
+      setInterval(theme, 60000);
+    </script>
+  </body>
+</html>

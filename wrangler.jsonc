@@ -1,0 +1,8 @@
+{
+  "name": "chongqing-travel-guide",
+  "compatibility_date": "2026-10-02",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public"
+  }
+}

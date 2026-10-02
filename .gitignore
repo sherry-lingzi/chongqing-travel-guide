@@ -1,0 +1,7 @@
+# 用户提供的原始压缩包与本地离线副本不进入部署仓库
+*.zip
+重庆漫游手册.html
+
+# 本地预览和 Wrangler 临时文件
+.wrangler/
+.tmp-wrangler/
