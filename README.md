@@ -51,4 +51,4 @@ GitHub仓库为`https://github.com/sherry-lingzi/chongqing-travel-guide`，公�
 - Cloudflare Git集成：https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/
 - 网站阻碍说明：https://help.openai.com/articles/20001280-using-cloud-browser-in-chatgpt#when-a-website-blocks-the-task
 
-地图为不按比例的顺序与区域示意图，不是道路地图。Google多点导航只提供计划点位顺序；公共交通、铁路和武隆景区接驳应分段查询。国内出行优先使用页面提供的高德地图入口核对路线。
+总览地图拆为主城区和重庆—武隆两幅北向上比例图，点位按经纬度近似等比例投影，可判断大致方向和直线尺度；彩线仍不是道路或铁路走向。每日展开图只表示行程顺序。Google多点导航只提供计划点位顺序；公共交通、铁路和武隆景区接驳应分段查询。国内出行优先使用页面提供的高德地图入口核对路线。

@@ -236,6 +236,84 @@
         stroke: var(--gold);
         stroke-width: 4;
       }
+      .overview-geo {
+        display: grid;
+        gap: 14px;
+        margin-top: 16px;
+      }
+      .geo-panel {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 14px;
+        background: color-mix(in srgb, var(--card) 92%, var(--bg));
+      }
+      .geo-panel h3 {
+        margin: 0 0 4px;
+      }
+      .geo-panel > p {
+        margin: 4px 0 0;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .overview-geo svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .overview-geo svg text {
+        font-size: 18px;
+      }
+      .overview-geo svg .geo-small {
+        font-size: 14px;
+        fill: var(--muted);
+      }
+      .overview-geo svg .geo-label {
+        paint-order: stroke;
+        stroke: var(--card);
+        stroke-width: 5px;
+        stroke-linejoin: round;
+      }
+      .overview-geo svg .geo-leader {
+        stroke: var(--muted);
+        stroke-width: 1.5;
+        opacity: 0.8;
+      }
+      .overview-geo svg .geo-grid {
+        stroke: var(--line);
+        stroke-width: 1;
+        stroke-dasharray: 3 6;
+      }
+      .overview-geo svg .geo-route {
+        fill: none;
+        stroke-width: 4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0.9;
+      }
+      .overview-geo svg .geo-point {
+        fill: var(--card);
+        stroke: var(--ink);
+        stroke-width: 3;
+      }
+      .geo-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px 12px;
+        margin-top: 10px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .geo-legend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .geo-legend i {
+        width: 13px;
+        height: 4px;
+        border-radius: 999px;
+        background: var(--route-color);
+      }
       details {
         margin-top: 12px;
       }
@@ -328,6 +406,15 @@
         }
         .grid {
           grid-template-columns: 1fr;
+        }
+        .geo-panel {
+          padding: 10px 8px;
+        }
+        .overview-geo svg text {
+          font-size: 19px;
+        }
+        .overview-geo svg .geo-small.geo-label {
+          display: none;
         }
         .focus {
           display: block;
@@ -444,7 +531,7 @@
         </div>
         <div id="overview-map" class="map"></div>
         <p class="muted">
-          示意图不按比例，不用于判断距离或步行方向；彩线代表每天的行程，圆点可打开地图。路线导航需要网络，手册正文与示意图可离线阅读。
+          两幅图均为北向上，点位按经纬度近似等比例投影，可判断大致方向与直线尺度；彩线只连接计划节点，不代表真实道路或铁路走向。圆点可打开地图，路线导航需要网络，手册正文与比例图可离线阅读。
         </p>
         <div class="tablewrap">
           <table>
@@ -1256,24 +1343,165 @@
           weekday: "long",
           timeZone: "Asia/Shanghai",
         }).format(new Date(d + "T12:00:00+08:00"));
-      document.querySelector("#overview-map").innerHTML =
-        `<svg viewBox="0 0 320 590" role="img" aria-label="重庆市区至武隆区域示意，10月15日至21日每天使用不同颜色"><path d="M260 45 Q235 115 165 140" fill="none" stroke="#c14f5a" stroke-width="3" stroke-dasharray="6 4"/><path d="M165 140 Q105 110 62 90 Q35 65 30 30" fill="none" stroke="#2579b0" stroke-width="3"/><path d="M62 90 c-35 -24 -35 25 0 0" fill="none" stroke="#8866ba" stroke-width="4"/><path d="M62 90 Q95 126 165 140" fill="none" stroke="#b66133" stroke-width="3"/><path d="M165 140 Q240 150 250 215 Q255 255 220 285 Q190 220 165 140" fill="none" stroke="#198471" stroke-width="3"/><path d="M165 140 Q250 245 265 355 Q195 400 115 490 Q190 410 265 355 Q220 245 165 140" fill="none" stroke="#6f8734" stroke-width="3" stroke-dasharray="7 4"/><path d="M165 140 Q235 110 260 45" fill="none" stroke="#b08b24" stroke-width="3"/>${[
-          ["重庆江北机场", 260, 45, "15日晚抵达；返程航站楼待确认"],
-          ["磁器口", 30, 30, "16日报到后前往"],
-          ["重庆大学A区", 62, 90, "16、17日晚住附近"],
-          ["渝中 · 较场口 / 七星岗", 165, 140, "15、18—20日晚住附近"],
-          ["南山 · 黄桷垭", 250, 215, "19日从山上向江边走"],
-          ["龙门浩 · 下浩里", 220, 285, "19日晚结束点"],
-          ["重庆东站", 265, 355, "20日往返武隆的高铁站"],
-          ["武隆南站", 115, 490, "20日换乘景区交通"],
-        ]
-          .map(
-            ([p, x, y, t]) =>
-              `<a href="${gm(p)}" target="_blank" rel="noopener"><circle cx="${x}" cy="${y}" r="7" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><text x="${Math.max(100, Math.min(200, x))}" y="${y + 25}" text-anchor="middle">${p}</text><text class="secondary" x="${Math.max(100, Math.min(200, x))}" y="${y + 44}" text-anchor="middle">${t}</text></a>`,
-          )
-          .join("")}<g aria-label="日期颜色图例">${[
-            ["15", "#c14f5a"], ["16", "#2579b0"], ["17", "#8866ba"], ["18", "#b66133"], ["19", "#198471"], ["20", "#6f8734"], ["21", "#b08b24"],
-          ].map(([d, c], i) => `<circle cx="${24 + i * 43}" cy="565" r="6" fill="${c}"/><text x="${34 + i * 43}" y="570">${d}日</text>`).join("")}</g></svg>`;
+      const MAP_COLORS = {
+        15: "#c14f5a",
+        16: "#2579b0",
+        17: "#8866ba",
+        18: "#b66133",
+        19: "#198471",
+        20: "#6f8734",
+        21: "#b08b24",
+      };
+      const CITY_GEO = {
+        airport: {
+          label: "江北机场",
+          sub: "15日晚抵达 · 21日返程",
+          query: "重庆江北国际机场",
+          lat: 29.7267284,
+          lon: 106.6520253,
+          tx: 373,
+          ty: 95,
+          anchor: "middle",
+        },
+        ciqikou: {
+          label: "磁器口",
+          sub: "16日报到后前往",
+          query: "重庆磁器口古镇",
+          lat: 29.5833399,
+          lon: 106.4466489,
+          tx: 20,
+          ty: 250,
+          anchor: "start",
+        },
+        cqu: {
+          label: "重庆大学A区",
+          sub: "16、17日晚住附近",
+          query: "重庆大学A区博雅书院",
+          lat: 29.56793,
+          lon: 106.46549,
+          tx: 20,
+          ty: 390,
+          anchor: "start",
+        },
+        yuzhong: {
+          label: "渝中 · 较场口 / 七星岗",
+          sub: "15、18—20日晚住附近",
+          query: "重庆较场口",
+          lat: 29.5563846,
+          lon: 106.5678326,
+          tx: 235,
+          ty: 280,
+          anchor: "middle",
+        },
+        huangjueya: {
+          label: "南山 · 黄桷垭",
+          sub: "19日山上起点",
+          query: "重庆黄桷垭老街",
+          lat: 29.5398712,
+          lon: 106.5989759,
+          tx: 330,
+          ty: 410,
+          anchor: "start",
+        },
+        longmenhao: {
+          label: "龙门浩 · 下浩里",
+          sub: "19日晚结束点",
+          query: "重庆龙门浩老街",
+          lat: 29.5588249,
+          lon: 106.5912051,
+          tx: 315,
+          ty: 335,
+          anchor: "start",
+        },
+        east: {
+          label: "重庆东站",
+          sub: "20日往返武隆的高铁站",
+          query: "重庆东站",
+          lat: 29.4872648,
+          lon: 106.6687591,
+          tx: 325,
+          ty: 490,
+          anchor: "start",
+        },
+      };
+      const WULONG_GEO = {
+        city: { label: "渝中", lat: 29.5563846, lon: 106.5678326 },
+        east: { label: "重庆东站", lat: 29.4872648, lon: 106.6687591 },
+        wulong: {
+          label: "武隆南站",
+          lat: 29.297165,
+          lon: 107.817382,
+        },
+      };
+      function cityXY(p) {
+        return [
+          65 + (p.lon - 106.44) * 96.7 * 15,
+          40 + (29.74 - p.lat) * 111.1 * 15,
+        ];
+      }
+      function regionalXY(p) {
+        return [
+          30 + (p.lon - 106.56) * 96.9 * 3.6,
+          35 + (29.57 - p.lat) * 111.1 * 3.6,
+        ];
+      }
+      function geoPath(keys, points, projector) {
+        return keys
+          .map((key, i) => {
+            const [x, y] = projector(points[key]);
+            return `${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`;
+          })
+          .join(" ");
+      }
+      function cityNode(key) {
+        const p = CITY_GEO[key];
+        const [x, y] = cityXY(p);
+        return `<a href="${gm(p.query)}" target="_blank" rel="noopener"><line class="geo-leader" x1="${x.toFixed(1)}" y1="${y.toFixed(1)}" x2="${p.tx}" y2="${p.ty - 7}"/><circle class="geo-point" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="8"/><text class="geo-label" x="${p.tx}" y="${p.ty}" text-anchor="${p.anchor}">${p.label}</text><text class="geo-small geo-label" x="${p.tx}" y="${p.ty + 19}" text-anchor="${p.anchor}">${p.sub}</text></a>`;
+      }
+      const cityRoutes = [
+        { day: 15, keys: ["airport", "yuzhong"], dash: "8 7" },
+        { day: 16, keys: ["yuzhong", "cqu", "ciqikou"] },
+        { day: 18, keys: ["cqu", "yuzhong"] },
+        { day: 19, keys: ["yuzhong", "huangjueya", "longmenhao", "yuzhong"] },
+        { day: 20, keys: ["yuzhong", "east"], dash: "9 7" },
+      ];
+      const citySvg = `<svg viewBox="0 0 520 520" role="img" aria-label="重庆主城区北向上比例图；机场在东北，磁器口与重庆大学在西，渝中居中，南山与重庆东站在东南">
+        <g aria-hidden="true">
+          <path class="geo-grid" d="M65 25V495 M210 25V495 M355 25V495 M500 25V495"/>
+          <path class="geo-grid" d="M45 40H500 M45 207H500 M45 374H500"/>
+          <text class="geo-small" x="65" y="19" text-anchor="middle">106.44°E</text>
+          <text class="geo-small" x="210" y="19" text-anchor="middle">106.54°E</text>
+          <text class="geo-small" x="355" y="19" text-anchor="middle">106.64°E</text>
+          <text class="geo-small" x="510" y="45" text-anchor="end">29.74°N</text>
+          <text class="geo-small" x="510" y="212" text-anchor="end">29.64°N</text>
+          <text class="geo-small" x="510" y="379" text-anchor="end">29.54°N</text>
+        </g>
+        ${cityRoutes.map((r) => `<path class="geo-route" d="${geoPath(r.keys, CITY_GEO, cityXY)}" stroke="${MAP_COLORS[r.day]}" ${r.dash ? `stroke-dasharray="${r.dash}"` : ""}/>`).join("")}
+        <circle cx="${cityXY(CITY_GEO.cqu)[0].toFixed(1)}" cy="${cityXY(CITY_GEO.cqu)[1].toFixed(1)}" r="17" fill="none" stroke="${MAP_COLORS[17]}" stroke-width="5"/>
+        <path class="geo-route" d="M${cityXY(CITY_GEO.yuzhong)[0].toFixed(1)} ${cityXY(CITY_GEO.yuzhong)[1].toFixed(1)} Q445 210 ${cityXY(CITY_GEO.airport)[0].toFixed(1)} ${cityXY(CITY_GEO.airport)[1].toFixed(1)}" stroke="${MAP_COLORS[21]}"/>
+        ${Object.keys(CITY_GEO).map(cityNode).join("")}
+        <g aria-label="北箭头"><path d="M476 120V88 M476 88L468 103 M476 88L484 103" fill="none" stroke="var(--ink)" stroke-width="3"/><text x="476" y="81" text-anchor="middle">N</text></g>
+        <g aria-label="五公里比例尺"><path d="M40 500H115 M40 493V507 M115 493V507" stroke="var(--ink)" stroke-width="3"/><text class="geo-small" x="77" y="488" text-anchor="middle">5 km</text></g>
+      </svg>`;
+      const cityRegional = regionalXY(WULONG_GEO.city);
+      const eastRegional = regionalXY(WULONG_GEO.east);
+      const wulongRegional = regionalXY(WULONG_GEO.wulong);
+      const regionalSvg = `<svg viewBox="0 0 520 220" role="img" aria-label="重庆主城区至武隆南站北向上比例图；武隆南站位于重庆东站东南偏东方向，直线尺度约一百一十公里">
+        <path class="geo-route" d="${geoPath(["city", "east"], WULONG_GEO, regionalXY)}" stroke="${MAP_COLORS[20]}" stroke-dasharray="4 6"/>
+        <path class="geo-route" d="${geoPath(["east", "wulong"], WULONG_GEO, regionalXY)}" stroke="${MAP_COLORS[20]}" stroke-dasharray="10 7"/>
+        <a href="${gm("重庆较场口")}" target="_blank" rel="noopener"><circle class="geo-point" cx="${cityRegional[0].toFixed(1)}" cy="${cityRegional[1].toFixed(1)}" r="7"/><text class="geo-label" x="20" y="25">渝中</text></a>
+        <a href="${gm("重庆东站")}" target="_blank" rel="noopener"><circle class="geo-point" cx="${eastRegional[0].toFixed(1)}" cy="${eastRegional[1].toFixed(1)}" r="8"/><text class="geo-label" x="82" y="84">重庆东站</text><text class="geo-small geo-label" x="82" y="103">20日乘高铁</text></a>
+        <a href="${gm("武隆南站")}" target="_blank" rel="noopener"><circle class="geo-point" cx="${wulongRegional[0].toFixed(1)}" cy="${wulongRegional[1].toFixed(1)}" r="8"/><text class="geo-label" x="390" y="178">武隆南站</text><text class="geo-small geo-label" x="390" y="197">位于主城区东南偏东</text></a>
+        <text class="geo-small geo-label" x="245" y="118" text-anchor="middle">约113 km直线尺度</text>
+        <g aria-label="北箭头"><path d="M490 60V28 M490 28L482 43 M490 28L498 43" fill="none" stroke="var(--ink)" stroke-width="3"/><text x="490" y="21" text-anchor="middle">N</text></g>
+        <g aria-label="二十五公里比例尺"><path d="M35 195H125 M35 188V202 M125 188V202" stroke="var(--ink)" stroke-width="3"/><text class="geo-small" x="80" y="184" text-anchor="middle">25 km</text></g>
+      </svg>`;
+      document.querySelector("#overview-map").innerHTML = `
+        <div class="overview-geo">
+          <section class="geo-panel" id="city-scale-map"><h3>主城区 · 北向上比例图</h3>${citySvg}<p>相同比例尺下按公开地图经纬度投影；直线只显示节点间的大致方向，不代表道路、轨道或实际步行路径。</p></section>
+          <section class="geo-panel" id="region-scale-map"><h3>重庆—武隆 · 北向上区域图</h3>${regionalSvg}<p>重庆东站至武隆南站点位按同一比例尺投影；连接线不代表铁路实际走向，实际车程、进站与景区接驳仍须分段查询。</p></section>
+        </div>
+        <div class="geo-legend" aria-label="日期颜色图例">${Object.entries(MAP_COLORS).map(([d, c]) => `<span style="--route-color:${c}"><i></i>${d}日</span>`).join("")}</div>`;
       document.querySelector("#overview-table").innerHTML = DATA.days
         .map(
           (d) =>
