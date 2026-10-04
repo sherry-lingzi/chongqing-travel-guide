@@ -4,6 +4,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
+    <script>
+      (() => {
+        const key = "chongqing-guide-theme";
+        let choice = "auto";
+        try {
+          choice = localStorage.getItem(key) || "auto";
+        } catch {}
+        if (!["auto", "light", "dark"].includes(choice)) choice = "auto";
+        if (choice === "auto") {
+          const hour = Number(
+            new Intl.DateTimeFormat("en-GB", {
+              timeZone: "Asia/Shanghai",
+              hour: "2-digit",
+              hour12: false,
+            }).format(new Date()),
+          );
+          document.documentElement.dataset.theme =
+            hour >= 18 || hour < 7 ? "dark" : "light";
+        } else {
+          document.documentElement.dataset.theme = choice;
+        }
+        document.documentElement.dataset.themeMode = choice;
+      })();
+    </script>
     <title>重庆漫游手册 · 10月15—21日</title>
     <meta
       name="description"
@@ -46,6 +70,48 @@
         color: #f9fafc;
         padding: 26px max(20px, calc((100vw - 1040px) / 2));
         border-bottom: 4px solid #dab66a;
+      }
+      html[data-theme="light"] {
+        color-scheme: light;
+      }
+      html[data-theme="dark"] {
+        color-scheme: dark;
+      }
+      .theme-switcher {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 14px;
+      }
+      .theme-switcher > span {
+        margin-right: 2px;
+        color: #d2ddea;
+        font-size: 13px;
+      }
+      .theme-switcher button {
+        min-height: 34px;
+        padding: 5px 12px;
+        border: 1px solid #61758a;
+        border-radius: 999px;
+        background: #24384c;
+        color: #f9fafc;
+        font: inherit;
+        font-size: 13px;
+        cursor: pointer;
+      }
+      .theme-switcher button:hover {
+        border-color: #edc979;
+      }
+      .theme-switcher button:focus-visible {
+        outline: 3px solid #8cc9ed;
+        outline-offset: 2px;
+      }
+      .theme-switcher button[aria-pressed="true"] {
+        border-color: #edc979;
+        background: #edc979;
+        color: #162739;
+        font-weight: 700;
       }
       header p {
         margin: 4px 0;
@@ -504,6 +570,18 @@
       </div>
       <h1>重庆漫游手册</h1>
       <p>10月15—21日 / 会议、书店、山城与武隆</p>
+      <div class="theme-switcher" role="group" aria-label="页面配色">
+        <span>页面配色</span>
+        <button type="button" data-theme-choice="auto" aria-pressed="false">
+          自动
+        </button>
+        <button type="button" data-theme-choice="light" aria-pressed="false">
+          浅色
+        </button>
+        <button type="button" data-theme-choice="dark" aria-pressed="false">
+          深色
+        </button>
+      </div>
     </header>
     <main>
       <section class="card focus" aria-label="此刻关注">
@@ -527,7 +605,7 @@
           15日晚入住橙栖酒店；16日沿山城步道下行游渝中，下午转住IU酒店并步行到重大报到；17—18日以会议为主，18日晚搬回橙栖；19日走南山历史线；20日弹性挑战武隆三景；21日退房后携行李游三峡博物馆、鹅岭、二厂和李子坝，17:00前后抵达机场，19:10返程。
         </p>
         <div class="warning">
-          往返航班号、起降时间和航站楼已按你提供的行程截图录入，仍以航空公司临出发通知为准；酒店、高铁与景区门票均未订，会议场次及报告时间待公布。武隆时间表是规划窗口，不把参考班次、候车时间或接驳速度写成已确认事实。
+          往返航班号、起降时间和航站楼已按你提供的行程截图录入，仍以航空公司临出发通知为准；六晚酒店与往返航班已确认；高铁与景区门票均未订，会议场次及报告时间待公布。武隆时间表是规划窗口，不把参考班次、候车时间或接驳速度写成已确认事实。
         </div>
         <div id="overview-map" class="map"></div>
         <p class="muted">
@@ -539,7 +617,7 @@
               <tr>
                 <th>日期</th>
                 <th>主线</th>
-                <th>住宿区域（均未订）</th>
+                <th>住宿安排</th>
               </tr>
             </thead>
             <tbody id="overview-table"></tbody>
@@ -1965,21 +2043,70 @@
           )
           .join("");
       }
-      function theme() {
-        const h = Number(
+      const THEME_STORAGE_KEY = "chongqing-guide-theme";
+      const THEME_CHOICES = new Set(["auto", "light", "dark"]);
+
+      function automaticTheme() {
+        const hour = Number(
           new Intl.DateTimeFormat("en-GB", {
             timeZone: "Asia/Shanghai",
             hour: "2-digit",
             hour12: false,
           }).format(new Date()),
         );
-        document.documentElement.dataset.theme =
-          h >= 18 || h < 7 ? "dark" : "light";
+        return hour >= 18 || hour < 7 ? "dark" : "light";
       }
+
+      function readThemeChoice() {
+        try {
+          const saved = localStorage.getItem(THEME_STORAGE_KEY) || "auto";
+          return THEME_CHOICES.has(saved) ? saved : "auto";
+        } catch {
+          return "auto";
+        }
+      }
+
+      let themeChoice = readThemeChoice();
+
+      function applyTheme() {
+        document.documentElement.dataset.theme =
+          themeChoice === "auto" ? automaticTheme() : themeChoice;
+        document.documentElement.dataset.themeMode = themeChoice;
+        document.querySelectorAll("[data-theme-choice]").forEach((button) => {
+          button.setAttribute(
+            "aria-pressed",
+            String(button.dataset.themeChoice === themeChoice),
+          );
+        });
+      }
+
+      function chooseTheme(choice) {
+        if (!THEME_CHOICES.has(choice)) return;
+        themeChoice = choice;
+        try {
+          localStorage.setItem(THEME_STORAGE_KEY, choice);
+        } catch {}
+        applyTheme();
+      }
+
+      document.querySelectorAll("[data-theme-choice]").forEach((button) => {
+        button.addEventListener("click", () => {
+          chooseTheme(button.dataset.themeChoice);
+        });
+      });
+
+      window.addEventListener("storage", (event) => {
+        if (event.key !== THEME_STORAGE_KEY) return;
+        themeChoice = readThemeChoice();
+        applyTheme();
+      });
+
       tick();
-      theme();
+      applyTheme();
       setInterval(tick, 1000);
-      setInterval(theme, 60000);
+      setInterval(() => {
+        if (themeChoice === "auto") applyTheme();
+      }, 60000);
     </script>
   </body>
 </html>
