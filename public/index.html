@@ -577,11 +577,12 @@
       .conference-talks p, .conference-paper-title {
         margin: 3px 0 0;
         overflow-wrap: anywhere;
-        font-family: "Kaiti SC", "STKaiti", "KaiTi", "楷体", "Microsoft YaHei", sans-serif;
-        font-size: 0.9375rem;
+        font-family: "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", "宋体", serif;
+        font-size: 0.875rem;
         font-weight: 400;
         line-height: 1.8;
       }
+      .parallel-list { white-space: pre-line; line-height: 1.75; }
       @media(max-width: 760px) { .conference-sessions { grid-template-columns: 1fr; } }
     </style>
   </head>
@@ -1060,7 +1061,7 @@
         {
           "t": "10:30—11:30",
           "title": "分论坛1—3（并行）",
-          "text": "主教512：科幻文学与20世纪中国（一）；510：当代中国科技人文批评（一）；506：中外科幻中的家庭、性别与技术（一）。",
+          "text": "主教512：科幻文学与20世纪中国（一）\n主教510：当代中国科技人文批评（一）\n主教506：中外科幻中的家庭、性别与技术（一）",
           "place": "重庆大学A校园主教学楼",
           "status": "会议日程",
           "stamp": null
@@ -1076,7 +1077,7 @@
         {
           "t": "13:30—14:30",
           "title": "分论坛4—6（并行）",
-          "text": "主教512、510、506三场并行；完整报告列表见下方日程。",
+          "text": "主教512：科幻文学与20世纪中国（二）\n主教510：中外科幻中的家庭、性别与技术（二）\n主教506：科幻中的未来法学（一）",
           "place": "重庆大学A校园主教学楼",
           "status": "会议日程",
           "stamp": null
@@ -1092,7 +1093,7 @@
         {
           "t": "14:50—15:50",
           "title": "分论坛7—9（并行）",
-          "text": "主教512、510、506三场并行。",
+          "text": "主教512：科幻文学与20世纪中国（三）\n主教510：全球南方与第三世界科幻（一）\n主教506：科幻中的未来法学（二）",
           "place": "重庆大学A校园主教学楼",
           "status": "会议日程",
           "stamp": null
@@ -1108,7 +1109,7 @@
         {
           "t": "16:10—17:30",
           "title": "分论坛10—12（并行）",
-          "text": "主教512、510、506三场并行。",
+          "text": "主教512：当代中国科技人文批评（二）\n主教510：全球南方与第三世界科幻（二）\n主教506：智能影音与媒介新理论（一）",
           "place": "重庆大学A校园主教学楼",
           "status": "会议日程",
           "stamp": null
@@ -1116,7 +1117,7 @@
         {
           "t": "17:30—18:20",
           "title": "分论坛13—14（并行）",
-          "text": "主教512：中外科幻中的家庭、性别与技术（三）；510：科幻想象的历史和哲学视野（一）。",
+          "text": "主教512：中外科幻中的家庭、性别与技术（三）\n主教510：科幻想象的历史和哲学视野（一）",
           "place": "重庆大学A校园主教学楼",
           "status": "会议日程",
           "stamp": null
@@ -1167,7 +1168,7 @@
         {
           "t": "08:30—09:50",
           "title": "分论坛15—17（并行）",
-          "text": "主教512：智能影音与媒介新理论（二）；510：创意写作与文化产业（一）；506：科幻想象的历史和哲学视野（二）。",
+          "text": "主教512：智能影音与媒介新理论（二）\n主教510：创意写作与文化产业（一）\n主教506：科幻想象的历史和哲学视野（二）",
           "place": "重庆大学A校园主教学楼",
           "status": "会议日程",
           "stamp": "2026-10-18T08:30:00+08:00"
@@ -1183,7 +1184,7 @@
         {
           "t": "10:00—11:10",
           "title": "分论坛18—19（并行）",
-          "text": "主教512：科幻想象的历史和哲学视野（三）；510：创意写作与文化产业（二）。",
+          "text": "主教512：科幻想象的历史和哲学视野（三）\n主教510：创意写作与文化产业（二）",
           "place": "重庆大学A校园主教学楼",
           "status": "会议日程",
           "stamp": null
@@ -2156,7 +2157,7 @@
       document.querySelector("#days").innerHTML = DATA.days
         .map(
           (d) =>
-            `<article class="day" style="--day:${d.color}" id="day-${d.date}"><div class="day-head"><div><div class="eyebrow">10月${d.date.slice(-2)}日 · ${weekday(d.date)} · UTC+8</div><h3>${escapeHTML(d.title)}</h3></div><div class="stay">${escapeHTML(d.stay)}</div></div><p>${escapeHTML(d.note)}</p><details><summary>展开当天路线地图与分段导航</summary><div class="map">${sketch(d.places, d.color)}</div>${placeLinks(d.places)}<div class="map-actions">${routeActions(d)}</div><p class="muted">示意图包含可选点，只表示计划顺序。多点链接不承诺公共交通可一次完成；铁路、机场交通、景区专线与内部换乘必须分别查询。</p></details><div class="timeline">${d.items.map((v) => `<div class="row"><div class="time">${escapeHTML(v.t)}</div><div><strong>${escapeHTML(v.title)}</strong> <span class="pill">${escapeHTML(v.status)}</span><p>${escapeHTML(v.text)}</p>${links(v.place)}</div></div>`).join("")}</div></article>`,
+            `<article class="day" style="--day:${d.color}" id="day-${d.date}"><div class="day-head"><div><div class="eyebrow">10月${d.date.slice(-2)}日 · ${weekday(d.date)} · UTC+8</div><h3>${escapeHTML(d.title)}</h3></div><div class="stay">${escapeHTML(d.stay)}</div></div><p>${escapeHTML(d.note)}</p><details><summary>展开当天路线地图与分段导航</summary><div class="map">${sketch(d.places, d.color)}</div>${placeLinks(d.places)}<div class="map-actions">${routeActions(d)}</div><p class="muted">示意图包含可选点，只表示计划顺序。多点链接不承诺公共交通可一次完成；铁路、机场交通、景区专线与内部换乘必须分别查询。</p></details><div class="timeline">${d.items.map((v) => `<div class="row"><div class="time">${escapeHTML(v.t)}</div><div><strong>${escapeHTML(v.title)}</strong> <span class="pill">${escapeHTML(v.status)}</span><p class="${v.title.startsWith("分论坛") ? "parallel-list" : ""}">${escapeHTML(v.text)}</p>${links(v.place)}</div></div>`).join("")}</div></article>`,
         )
         .join("");
       document.querySelector("#sources").innerHTML = DATA.sources
@@ -2339,3 +2340,4 @@
         </script>
   </body>
 </html>
+
