@@ -220,6 +220,43 @@
         gap: 8px;
         margin: 17px 0;
       }
+      .top-nav {
+        display: block;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--paper);
+      }
+      .nav-caption {
+        margin: 0 0 7px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .date-links {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 7px;
+      }
+      .date-links a {
+        padding: 8px 4px;
+        text-align: center;
+      }
+      .date-links strong,
+      .date-links small { display: block; }
+      .date-links small {
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .section-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 9px;
+      }
+      .day { scroll-margin-top: 14px; }
+      .day:target { outline: 3px solid var(--gold); outline-offset: 3px; }
       .nav a,
       button,
       .maplink {
@@ -622,6 +659,21 @@
       </div>
     </header>
     <main>
+      <nav class="nav top-nav" aria-label="日期与手册导航">
+        <p class="nav-caption">按日期直达</p>
+        <div class="date-links">
+          <a href="#day-2026-10-15"><strong>15日</strong><small>周四</small></a>
+          <a href="#day-2026-10-16"><strong>16日</strong><small>周五</small></a>
+          <a href="#day-2026-10-17"><strong>17日</strong><small>周六</small></a>
+          <a href="#day-2026-10-18"><strong>18日</strong><small>周日</small></a>
+          <a href="#day-2026-10-19"><strong>19日</strong><small>周一</small></a>
+          <a href="#day-2026-10-20"><strong>20日</strong><small>周二</small></a>
+          <a href="#day-2026-10-21"><strong>21日</strong><small>周三</small></a>
+        </div>
+        <div class="section-links" aria-label="页面栏目">
+          <a href="#overview">总览地图</a><a href="#bookings">预订状态</a><a href="#conference">会议日程</a><a href="#daily">逐日行程</a><a href="#todos">待办清单</a><a href="#tips">实用贴士</a>
+        </div>
+      </nav>
       <section class="card focus" aria-label="此刻关注">
         <div>
           <div class="eyebrow">此刻关注 · 北京时间 UTC+8</div>
@@ -632,11 +684,6 @@
         </div>
         <div class="clock" id="countdown" aria-live="off"></div>
       </section>
-      <nav class="nav" aria-label="手册导航">
-        <a href="#overview">总览地图</a><a href="#bookings">预订状态</a
-        ><a href="#conference">会议日程</a><a href="#daily">逐日行程</a><a href="#todos">待办清单</a
-        ><a href="#tips">实用贴士</a>
-      </nav>
       <section id="overview" class="card">
         <h2>七天怎么走</h2>
         <p>
