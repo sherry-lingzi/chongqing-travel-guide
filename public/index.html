@@ -2288,7 +2288,7 @@
           const forumId = Number(
             details.dataset.forumId || details.id.replace("forum-", ""),
           );
-          details.open = new Set([2, 4, 5, 7, 8, 9, 10, 11, 13, 17]).has(forumId);
+          details.open = new Set([2, 4, 5, 7, 8, 9, 10, 11, 13, 17, 18]).has(forumId);
         });
       document.querySelector("#sources").innerHTML = DATA.sources
         .map(
