@@ -619,6 +619,16 @@
         font-weight: 400;
         line-height: 1.8;
       }
+      .paper-mark {
+        padding: 0.05em 0.18em;
+        border-radius: 0.2em;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+      }
+      .paper-mark-yellow { background: rgba(244, 190, 45, 0.38); }
+      .paper-mark-wine { background: rgba(117, 22, 46, 0.23); }
+      html[data-theme="dark"] .paper-mark-yellow { background: rgba(244, 190, 45, 0.3); }
+      html[data-theme="dark"] .paper-mark-wine { background: rgba(177, 54, 86, 0.42); }
       .parallel-list { white-space: pre-line; line-height: 1.75; }
       .inline-conference-sessions {
         display: grid;
@@ -2216,6 +2226,32 @@
             `<tr><td>10/${d.date.slice(-2)}<br>${weekday(d.date)}</td><td>${escapeHTML(d.title)}</td><td>${escapeHTML(d.stay)}</td></tr>`,
         )
         .join("");
+      const YELLOW_PAPERS = new Set([
+        "赛博格史前史：以16—18世纪“管风琴—器官”机械—生机论为例",
+        "超越“机器弑主”：《杀手机器人日记》中的人机协存",
+        "造人·造神——理解中国古代机器人想象的两个维度",
+        "知识的算法：写作机器与控制论美学",
+      ]);
+      const WINE_PAPERS = new Set([
+        "法律概念的科幻之维——未来法哲学初探",
+        "现实何以具有“科幻性”：技术中介、情绪结构与文化图式",
+      ]);
+      function highlightPapers(root) {
+        root.querySelectorAll(".conference-talks p").forEach((paper) => {
+          const title = paper.textContent.trim();
+          const tone = YELLOW_PAPERS.has(title)
+            ? "yellow"
+            : WINE_PAPERS.has(title)
+              ? "wine"
+              : "";
+          if (!tone || paper.querySelector(".paper-mark")) return;
+          const mark = document.createElement("span");
+          mark.className = `paper-mark paper-mark-${tone}`;
+          mark.textContent = title;
+          paper.replaceChildren(mark);
+        });
+      }
+      highlightPapers(document);
       function inlineForumDetails(title) {
         const match = title.match(/^分论坛(\d+)—(\d+)/);
         if (!match) return "";
@@ -2224,6 +2260,7 @@
           const source = document.querySelector(`#forum-${id}`);
           if (!source) continue;
           const clone = source.cloneNode(true);
+          clone.dataset.forumId = String(id);
           clone.removeAttribute("id");
           clone.removeAttribute("open");
           clone.querySelectorAll("[id]").forEach((node) => node.removeAttribute("id"));
@@ -2247,7 +2284,12 @@
         .join("");
       document
         .querySelectorAll(".conference-session")
-        .forEach((details) => { details.open = true; });
+        .forEach((details) => {
+          const forumId = Number(
+            details.dataset.forumId || details.id.replace("forum-", ""),
+          );
+          details.open = new Set([2, 4, 5, 7, 8, 9, 10, 11, 13, 17]).has(forumId);
+        });
       document.querySelector("#sources").innerHTML = DATA.sources
         .map(
           ([t, u]) =>
