@@ -583,6 +583,21 @@
         line-height: 1.8;
       }
       .parallel-list { white-space: pre-line; line-height: 1.75; }
+      .inline-conference-sessions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 9px;
+        margin: 12px 0 6px;
+      }
+      .inline-conference-sessions .conference-session { padding: 10px; }
+      .inline-conference-sessions summary small {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 400;
+      }
+      .inline-conference-sessions .conference-talks p { font-size: 0.875rem; }
       @media(max-width: 760px) { .conference-sessions { grid-template-columns: 1fr; } }
     </style>
   </head>
@@ -2154,10 +2169,33 @@
             `<tr><td>10/${d.date.slice(-2)}<br>${weekday(d.date)}</td><td>${escapeHTML(d.title)}</td><td>${escapeHTML(d.stay)}</td></tr>`,
         )
         .join("");
+      function inlineForumDetails(title) {
+        const match = title.match(/^分论坛(\d+)—(\d+)/);
+        if (!match) return "";
+        const cards = [];
+        for (let id = Number(match[1]); id <= Number(match[2]); id += 1) {
+          const source = document.querySelector(`#forum-${id}`);
+          if (!source) continue;
+          const clone = source.cloneNode(true);
+          clone.removeAttribute("id");
+          clone.removeAttribute("open");
+          clone.querySelectorAll("[id]").forEach((node) => node.removeAttribute("id"));
+          clone.querySelector(".links")?.remove();
+          const count = clone.querySelectorAll(".conference-talks li").length;
+          clone.querySelector("summary")?.insertAdjacentHTML(
+            "beforeend",
+            `<small>共${count}篇报告</small>`,
+          );
+          cards.push(clone.outerHTML);
+        }
+        return cards.length
+          ? `<div class="inline-conference-sessions">${cards.join("")}</div>`
+          : "";
+      }
       document.querySelector("#days").innerHTML = DATA.days
         .map(
           (d) =>
-            `<article class="day" style="--day:${d.color}" id="day-${d.date}"><div class="day-head"><div><div class="eyebrow">10月${d.date.slice(-2)}日 · ${weekday(d.date)} · UTC+8</div><h3>${escapeHTML(d.title)}</h3></div><div class="stay">${escapeHTML(d.stay)}</div></div><p>${escapeHTML(d.note)}</p><details><summary>展开当天路线地图与分段导航</summary><div class="map">${sketch(d.places, d.color)}</div>${placeLinks(d.places)}<div class="map-actions">${routeActions(d)}</div><p class="muted">示意图包含可选点，只表示计划顺序。多点链接不承诺公共交通可一次完成；铁路、机场交通、景区专线与内部换乘必须分别查询。</p></details><div class="timeline">${d.items.map((v) => `<div class="row"><div class="time">${escapeHTML(v.t)}</div><div><strong>${escapeHTML(v.title)}</strong> <span class="pill">${escapeHTML(v.status)}</span><p class="${v.title.startsWith("分论坛") ? "parallel-list" : ""}">${escapeHTML(v.text)}</p>${links(v.place)}</div></div>`).join("")}</div></article>`,
+            `<article class="day" style="--day:${d.color}" id="day-${d.date}"><div class="day-head"><div><div class="eyebrow">10月${d.date.slice(-2)}日 · ${weekday(d.date)} · UTC+8</div><h3>${escapeHTML(d.title)}</h3></div><div class="stay">${escapeHTML(d.stay)}</div></div><p>${escapeHTML(d.note)}</p><details><summary>展开当天路线地图与分段导航</summary><div class="map">${sketch(d.places, d.color)}</div>${placeLinks(d.places)}<div class="map-actions">${routeActions(d)}</div><p class="muted">示意图包含可选点，只表示计划顺序。多点链接不承诺公共交通可一次完成；铁路、机场交通、景区专线与内部换乘必须分别查询。</p></details><div class="timeline">${d.items.map((v) => `<div class="row"><div class="time">${escapeHTML(v.t)}</div><div><strong>${escapeHTML(v.title)}</strong> <span class="pill">${escapeHTML(v.status)}</span><p class="${v.title.startsWith("分论坛") ? "parallel-list" : ""}">${escapeHTML(v.text)}</p>${v.title.startsWith("分论坛") ? inlineForumDetails(v.title) : ""}${links(v.place)}</div></div>`).join("")}</div></article>`,
         )
         .join("");
       document.querySelector("#sources").innerHTML = DATA.sources
