@@ -561,6 +561,21 @@
           padding: 10px;
         }
       }
+
+      .conference { margin-bottom: 26px; }
+      .conference details { min-width: 0; }
+      .conference summary { cursor: pointer; white-space: normal; overflow-wrap: anywhere; }
+      .conference-day { border-top: 1px solid var(--line); padding: 12px 0; }
+      .conference-day > summary { font-weight: 700; font-size: 18px; }
+      .conference-slot { padding: 12px 0; }
+      .conference-slot h4 { margin: 0 0 10px; color: var(--gold); font-size: 16px; }
+      .conference-sessions { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; align-items: start; }
+      .conference-session { border: 1px solid var(--line); border-radius: 10px; padding: 12px; background: var(--tint); }
+      .conference-session > summary { font-weight: 600; }
+      .conference-talks { margin: 12px 0 0; padding-left: 23px; }
+      .conference-talks li { padding: 9px 0; border-top: 1px solid var(--line); }
+      .conference-talks p { margin: 3px 0 0; overflow-wrap: anywhere; }
+      @media(max-width: 760px) { .conference-sessions { grid-template-columns: 1fr; } }
     </style>
   </head>
   <body>
@@ -596,16 +611,16 @@
       </section>
       <nav class="nav" aria-label="手册导航">
         <a href="#overview">总览地图</a><a href="#bookings">预订状态</a
-        ><a href="#daily">逐日行程</a><a href="#todos">待办清单</a
+        ><a href="#conference">会议日程</a><a href="#daily">逐日行程</a><a href="#todos">待办清单</a
         ><a href="#tips">实用贴士</a>
       </nav>
       <section id="overview" class="card">
         <h2>七天怎么走</h2>
         <p>
-          15日晚抵达重庆并入住小什字附近的橙栖酒店；16日沿山城步道下行，经十八梯与解放碑后取行李前往重庆大学A区报到；17—18日以会议为主，18日晚取行李后前往重庆西站，乘待确认的晚间高铁到武隆南并在武隆住宿；19日以天生三桥和龙水峡地缝为核心完整游览武隆，仙女山视时间、天气与体力取舍，傍晚返回重庆；20日走抗战遗址博物馆—黄桷垭—黄葛古道—龙门浩—下浩里的南山历史线；21日退房后在曾家岩一带寄存行李，游三峡博物馆、人民大礼堂、鹅岭、二厂和李子坝，返回曾家岩取行李后乘10号线去机场，19:10返南京。
+          15日晚抵达重庆并入住小什字附近的橙栖酒店；16日沿山城步道下行，经十八梯与解放碑后取行李后前往沙坪坝，在丽苑维景国际大酒店报到；17—18日以会议为主，18日晚取行李后前往重庆西站，乘待确认的晚间高铁到武隆南并在武隆住宿；19日以天生三桥和龙水峡地缝为核心完整游览武隆，仙女山视时间、天气与体力取舍，傍晚返回重庆；20日走抗战遗址博物馆—黄桷垭—黄葛古道—龙门浩—下浩里的南山历史线；21日退房后在曾家岩一带寄存行李，游三峡博物馆、人民大礼堂、鹅岭、二厂和李子坝，返回曾家岩取行李后乘10号线去机场，19:10返南京。
         </p>
         <div class="warning">
-          往返航班号、起降时间和航站楼已按你提供的行程截图录入，仍以航空公司临出发通知为准；目前仅15日晚橙栖酒店确认已订，16—20日晚住宿、高铁与景区门票均未订，会议场次及报告时间待公布。武隆所有时段均为规划窗口，不把尚未开售的车次、候车时间或夜间接驳写成已确认事实。
+          往返航班号、起降时间和航站楼已按你提供的行程截图录入，仍以航空公司临出发通知为准；目前仅15日晚橙栖酒店确认已订，16—20日晚住宿、高铁与景区门票均未订，会议日程已录入，各报告的单独起止时间未列。武隆所有时段均为规划窗口，不把尚未开售的车次、候车时间或夜间接驳写成已确认事实。
         </div>
         <div id="overview-map" class="map"></div>
         <p class="muted">
@@ -640,12 +655,12 @@
             </p>
           </div>
           <div>
-            <h3>会议 · 地点与报到窗口已知</h3>
+            <h3>会议 · 16—18日日程已录入</h3>
             <p>
-              重庆大学沙坪坝校区A校园。10月16日14:00—20:00可报到，办理后即可离开；17—18日论坛与报告具体时段待公布。
+              16日14:00—20:00在重庆丽苑维景国际大酒店报到。17日09:00开幕；18日08:30开始分论坛，11:30—12:30闭幕，12:30—13:30午餐。
             </p>
             <p class="muted">
-              博雅书院可作为校区参考点，具体报到房间、会场与入口待会务通知。
+              开闭幕式：重庆大学A校园博雅书院报告厅；分论坛：A校园主教512、510、506会议室。报到酒店与会议会场请分别导航。<a href="#conference">查看完整日程</a>。
             </p>
           </div>
         </div>
@@ -675,15 +690,16 @@
           Asia/Shanghai（UTC+8）。每一天可展开路线图、每个点位的高德与 Google
           地图入口，以及按本地段拆分的多点路线；跨城铁路、公共交通和景区接驳仍需逐段查询。
         </p>
+<div class="card conference" id="conference"><h3>会议日程 · 10月16—18日</h3><p class="muted">按你提供的日程图整理，均为北京时间 UTC+8。同一时段的分论坛并行举行；每场内部仅给出报告顺序，未给出单篇报告时间。</p><div class="warning">16日注册报到在重庆丽苑维景国际大酒店；17—18日开闭幕式在博雅书院报告厅，分论坛在A校园主教会议室。<div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E4%B8%BD%E8%8B%91%E7%BB%B4%E6%99%AF%E5%9B%BD%E9%99%85%E5%A4%A7%E9%85%92%E5%BA%97&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E4%B8%BD%E8%8B%91%E7%BB%B4%E6%99%AF%E5%9B%BD%E9%99%85%E5%A4%A7%E9%85%92%E5%BA%97">Google地图</a></div></div><details class="conference-day" open><summary>10月16日 · 周五</summary><div class="conference-slot"><h4>14:00—20:00</h4><p><strong>嘉宾注册报到</strong> · 重庆丽苑维景国际大酒店</p><p>报到窗口内办理一次即可。</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E4%B8%BD%E8%8B%91%E7%BB%B4%E6%99%AF%E5%9B%BD%E9%99%85%E5%A4%A7%E9%85%92%E5%BA%97&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E4%B8%BD%E8%8B%91%E7%BB%B4%E6%99%AF%E5%9B%BD%E9%99%85%E5%A4%A7%E9%85%92%E5%BA%97">Google地图</a></div></div></details><details class="conference-day"><summary>10月17日 · 周六</summary><div class="conference-slot"><h4>09:00—09:20</h4><p><strong>开幕式</strong> · 重庆大学A校园博雅书院报告厅</p><p class="muted">主持人：张泰旗</p><p>开幕致辞：李广益；《中国科幻文学大系·晚清卷》（第三辑）首发式。</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E5%8D%9A%E9%9B%85%E4%B9%A6%E9%99%A2%E6%8A%A5%E5%91%8A%E5%8E%85&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E5%8D%9A%E9%9B%85%E4%B9%A6%E9%99%A2%E6%8A%A5%E5%91%8A%E5%8E%85">Google地图</a></div></div><div class="conference-slot"><h4>09:20—10:00</h4><p><strong>主旨演讲</strong></p><p>主讲人：冯象</p><p>通用智能：谁的末日？——从《启示录》和菲尔兹奖得主齐默曼的大灭绝分类说起</p><p class="muted">原图未单独列主旨演讲会场，以现场安排为准。</p></div><div class="conference-slot"><h4>10:00—10:30</h4><p><strong>合影、茶歇</strong></p></div><div class="conference-slot"><h4>10:30—11:30 · 3场并行</h4><div class="conference-sessions"><details class="conference-session" id="forum-1"><summary>分论坛1 · 科幻文学与20世纪中国（一）</summary><p><strong>A校园主教512会议室</strong></p><p class="muted">主持人：王都<br>评议人：李广益</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-1-1"><strong>刘苇苇</strong><p>由“科学”而“白心”——鲁迅早期科学观及晚清科幻小说的叙事困境</p></li><li id="talk-1-2"><strong>罗帅</strong><p>法术启蒙与科学狂想：论“催眠术”与清末民初新小说</p></li><li id="talk-1-3"><strong>杨天舒</strong><p>从“观看”到“乘坐”：1940年代中国火箭知识与技术未来的生成</p></li><li id="talk-1-4"><strong>冯师曜</strong><p>1990年代初台湾科幻文学的自我组织实践：《幻象》杂志的中国风味科幻与世界资源转译</p></li></ol></details><details class="conference-session" id="forum-2"><summary>分论坛2 · 当代中国科技人文批评（一）</summary><p><strong>A校园主教510会议室</strong></p><p class="muted">主持人：段君奕<br>评议人：黄鸣奋</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-2-1"><strong>霍盛亚</strong><p>作为技术与人文中介的技术文化</p></li><li id="talk-2-2"><strong>吕广钊</strong><p>科幻物语——科幻诗学的“物转向”</p></li><li id="talk-2-3"><strong>张菱芸</strong><p>现实何以具有“科幻性”：技术中介、情绪结构与文化图式</p></li><li id="talk-2-4"><strong>邱田</strong><p>技术如何重构情感：2020年代科幻影视中的真实性难题</p></li></ol></details><details class="conference-session" id="forum-3"><summary>分论坛3 · 中外科幻中的家庭、性别与技术（一）</summary><p><strong>A校园主教506会议室</strong></p><p class="muted">主持人：赵家怡<br>评议人：刘安琪</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-3-1"><strong>程顺溪</strong><p>男性是宇宙文明的真正拯救者吗？——再论刘慈欣科幻中的女性形象、性别表述与宇宙文明史之建构</p></li><li id="talk-3-2"><strong>何怡</strong><p>后人类视域下的“弑母”：韩松《红色海洋》中的技术异化与性别重写</p></li><li id="talk-3-3"><strong>郁旭映</strong><p>百合、耽美与酷儿：华语科幻中的另类亲密关系与家庭想象</p></li><li id="talk-3-4"><strong>刘希</strong><p>关于异化与反抗的推想：当代中国女作家科幻中的科技、劳动和性别</p></li></ol></details></div></div><div class="conference-slot"><h4>11:30—13:30</h4><p><strong>午餐、午休</strong></p></div><div class="conference-slot"><h4>13:30—14:30 · 3场并行</h4><div class="conference-sessions"><details class="conference-session" id="forum-4"><summary>分论坛4 · 科幻文学与20世纪中国（二）</summary><p><strong>A校园主教512会议室</strong></p><p class="muted">主持人：冯师曜<br>评议人：王瑞瑞</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-4-1"><strong>张靖宜</strong><p>再造劳动：“十七年科幻”中的按钮技术</p></li><li id="talk-4-2"><strong>王都</strong><p>“呼风唤雨的人们”：十七年科幻小说的自然叙事与主体政治</p></li><li id="talk-4-3"><strong>张泰旗</strong><p>铸梦为铁：论新时期科幻小说中的基础设施想象</p></li><li id="talk-4-4"><strong>董博轩</strong><p>启蒙遗产、文化消费与未来政治——1990年代中国科幻生态中的“想象力”话语</p></li></ol></details><details class="conference-session" id="forum-5"><summary>分论坛5 · 中外科幻中的家庭、性别与技术（二）</summary><p><strong>A校园主教510会议室</strong></p><p class="muted">主持人：朱沁雪<br>评议人：范轶伦</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-5-1"><strong>赵家怡</strong><p>孝道亲缘之再想象：当代中国科幻小说中的人工智能与家庭关系</p></li><li id="talk-5-2"><strong>周旦雪</strong><p>当代中国科幻中的技术肉身与亲职异化——以《嵌合体》和《太阳照常升起》为例</p></li><li id="talk-5-3"><strong>袁宏</strong><p>当代中国动画的跨物种亲缘想象：《罗小黑战记》系列电影的后人类女性主义解读</p></li></ol></details><details class="conference-session" id="forum-6"><summary>分论坛6 · 科幻中的未来法学（一）</summary><p><strong>A校园主教506会议室</strong></p><p class="muted">主持人：罗浩然<br>评议人：陈硕</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-6-1"><strong>吴玉茗</strong><p>“苍天在上”：《镜子》中的递归困境与纪检监察权的法权界限</p></li><li id="talk-6-2"><strong>高晨扬</strong><p>道德的黄昏：重审《三体》中的地球战时共产主义与逃亡主义的合法性与功效</p></li><li id="talk-6-3"><strong>杨安卓</strong><p>制造神族：行星探索与增强人类——基于星际迷航的新自然法思想实验</p></li></ol></details></div></div><div class="conference-slot"><h4>14:30—14:50</h4><p><strong>茶歇</strong></p></div><div class="conference-slot"><h4>14:50—15:50 · 3场并行</h4><div class="conference-sessions"><details class="conference-session" id="forum-7"><summary>分论坛7 · 科幻文学与20世纪中国（三）</summary><p><strong>A校园主教512会议室</strong></p><p class="muted">主持人：董博轩<br>评议人：乔焕江</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-7-1"><strong>丁玲</strong><p>“反英雄”人物与“新封建主义”寓言——论刘慈欣科幻小说《赡养人类》</p></li><li id="talk-7-2"><strong>何卓伦</strong><p>银河系里的“黄土地”：科幻未来主义与刘慈欣的“西部中国”</p></li><li id="talk-7-3"><strong>陈思</strong><p>从硅屿“霓虹”到“翡翠岛”——陈楸帆《荒潮》《刹海》中的生态书写</p></li><li id="talk-7-4"><strong>周琪</strong><p>如何在“废土”之上重建“家园”？——论网络废土科幻小说的美学渊源、现实投射及叙事路径</p></li></ol></details><details class="conference-session" id="forum-8"><summary>分论坛8 · 全球南方与第三世界科幻（一）</summary><p><strong>A校园主教510会议室</strong></p><p class="muted">主持人：周旦雪<br>评议人：王一平</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-8-1"><strong>汪晨欢</strong><p>从推想文学到“推想创作”：韦罗妮卡·格伯·比塞奇的跨媒介性、非创作实践与集体未来叙事</p></li><li id="talk-8-2"><strong>乔沄楷</strong><p>全球南方科幻中的非人的回返：《Lagoon》中的怪物与生成</p></li><li id="talk-8-3"><strong>黄漪澜</strong><p>“坐上火车向外看，美国的真面目”：怀特黑德《地下铁道》中的非裔未来主义</p></li><li id="talk-8-4"><strong>谢恺晴</strong><p>撕开色盲种族主义的假面：非裔未来主义与非洲未来主义之辨</p></li></ol></details><details class="conference-session" id="forum-9"><summary>分论坛9 · 科幻中的未来法学（二）</summary><p><strong>A校园主教506会议室</strong></p><p class="muted">主持人：高晨扬<br>评议人：姜振宇</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-9-1"><strong>陈硕</strong><p>自我书写的宪制——《布里邦克人》作为未来公法学的思想实验</p></li><li id="talk-9-2"><strong>岳林</strong><p>阿西莫夫的诡计——论机器人学三法则的双重功能</p></li><li id="talk-9-3"><strong>陆栋</strong><p>法律概念的科幻之维——未来法哲学初探</p></li></ol></details></div></div><div class="conference-slot"><h4>15:50—16:10</h4><p><strong>茶歇</strong></p></div><div class="conference-slot"><h4>16:10—17:30 · 3场并行</h4><div class="conference-sessions"><details class="conference-session" id="forum-10"><summary>分论坛10 · 当代中国科技人文批评（二）</summary><p><strong>A校园主教512会议室</strong></p><p class="muted">主持人：任明潇<br>评议人：霍盛亚、周梦泉</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-10-1"><strong>严育成</strong><p>赛博格史前史：以16—18世纪“管风琴—器官”机械—生机论为例</p></li><li id="talk-10-2"><strong>唐杰</strong><p>超越“机器弑主”：《杀手机器人日记》中的人机协存</p></li><li id="talk-10-3"><strong>王瑞瑞</strong><p>科幻电影中“技术睡眠”的异化逻辑及抵抗策略</p></li><li id="talk-10-4"><strong>胡强</strong><p>技术镜像中的文化主体性：从切斯特顿的电影批判到当代中国科技人文的省思</p></li><li id="talk-10-5"><strong>段君奕</strong><p>20世纪中国科幻文学中的生命延展叙事</p></li></ol></details><details class="conference-session" id="forum-11"><summary>分论坛11 · 全球南方与第三世界科幻（二）</summary><p><strong>A校园主教510会议室</strong></p><p class="muted">主持人：谢恺晴<br>评议人：郁旭映、周旦雪</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-11-1"><strong>黄琳</strong><p>技术治理下身体的消失与重构——《你将看不到任何国家》的身体政治</p></li><li id="talk-11-2"><strong>王倩</strong><p>基因殖民的形成与失稳：《发条女孩》中的生物混杂</p></li><li id="talk-11-3"><strong>彭颖</strong><p>未竟与新生——一次以《沙丘》文本为对象的叙述学考察</p></li><li id="talk-11-4"><strong>王莹爽</strong><p>推想另一种现代性：《我们的土地》中的或然历史与去殖民批判</p></li><li id="talk-11-5"><strong>范轶伦</strong><p>南方不再哭泣：论拉美科幻研究的视角与方法</p></li></ol></details><details class="conference-session" id="forum-12"><summary>分论坛12 · 智能影音与媒介新理论（一）</summary><p><strong>A校园主教506会议室</strong></p><p class="muted">主持人：沈浩楠<br>评议人：邱田、王玉</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-12-1"><strong>陈娱</strong><p>数智媒介赋能科幻展览：构建未来图景的叙事与体验新范式</p></li><li id="talk-12-2"><strong>鲍远福</strong><p>从文化失语到情感认同表达：《黑神话：悟空》游戏玩家的媒介赋形与国族话语建构</p></li><li id="talk-12-3"><strong>黄宇豪</strong><p>“脸”的断裂：20世纪晚期中国科幻杂志封面的未来建构与文化政治</p></li><li id="talk-12-4"><strong>赵雪彤</strong><p>语言解谜游戏的媒介机制、科幻想象与玩家译者</p></li><li id="talk-12-5"><strong>代露洁</strong><p>“我”的又一次死亡——试论《盛世天下》死亡循环机制的建构</p></li></ol></details></div></div><div class="conference-slot"><h4>17:30—18:20 · 2场并行</h4><div class="conference-sessions"><details class="conference-session" id="forum-13"><summary>分论坛13 · 中外科幻中的家庭、性别与技术（三）</summary><p><strong>A校园主教512会议室</strong></p><p class="muted">主持人：张菱芸<br>评议人：刘希</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-13-1"><strong>朱沁雪</strong><p>少女、女侠与女国民：押川春浪小说汉译中的清末民初“新女性”想象</p></li><li id="talk-13-2"><strong>刘冰月</strong><p>堆肥、怪物与“非人”母职——《柠檬树》与《头》中的身体恐怖与生育叙事</p></li><li id="talk-13-3"><strong>王玥涵</strong><p>被指派的身体：人造子宫叙事中的生育规训与母职重构</p></li></ol></details><details class="conference-session" id="forum-14"><summary>分论坛14 · 科幻想象的历史和哲学视野（一）</summary><p><strong>A校园主教510会议室</strong></p><p class="muted">主持人：唐桑园<br>评议人：胡强</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-14-1"><strong>王一平</strong><p>玛格丽特·阿特伍德“疯癫亚当”三部曲的枪支书写与末世重建</p></li><li id="talk-14-2"><strong>沈浩楠</strong><p>从无限宇宙到有限行星：论《无人深空》与《星际拓荒》中的尺度感知与环境叙事</p></li><li id="talk-14-3"><strong>罗浩然</strong><p>能源与乌托邦：《两个星球上》的能源革新与社会寓言</p></li></ol></details></div></div><div class="conference-slot"><h4>19:00起</h4><p><strong>晚餐</strong></p><p>原图只给出开始时间。</p></div></details><details class="conference-day"><summary>10月18日 · 周日</summary><div class="conference-slot"><h4>08:30—09:50 · 3场并行</h4><div class="conference-sessions"><details class="conference-session" id="forum-15"><summary>分论坛15 · 智能影音与媒介新理论（二）</summary><p><strong>A校园主教512会议室</strong></p><p class="muted">主持人：黄宇豪<br>评议人：鲍远福</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-15-1"><strong>管韵</strong><p>技术何以越出工具：新好莱坞科幻电影的人机关系内转及其AIGC转译</p></li><li id="talk-15-2"><strong>李欣</strong><p>媒介即科幻：科幻微短剧的生产、感知与观看</p></li><li id="talk-15-3"><strong>郭宇</strong><p>现实与科幻中的信息传递</p></li><li id="talk-15-4"><strong>黄鸣奋</strong><p>可问性媒介的兴起与科幻美学建构</p></li></ol></details><details class="conference-session" id="forum-16"><summary>分论坛16 · 创意写作与文化产业（一）</summary><p><strong>A校园主教510会议室</strong></p><p class="muted">主持人：潘纯琳<br>评议人：刘洋、相晓冬</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-16-1"><strong>何敏</strong><p>科学的创意写作与创意写作的科学——基于科幻创意写作教学的探讨</p></li><li id="talk-16-2"><strong>周梦泉</strong><p>科幻创意写作相比一般创意写作的特性以及对教学成果的反思——以电子科技大学“科幻小说鉴赏与创意写作”课程为例</p></li><li id="talk-16-3"><strong>李金凤</strong><p>创意写作视域下的叙事真实建构——以AI虚拟短剧《被裁掉的女孩》与实拍长剧《花开锦绣》为例</p></li><li id="talk-16-4"><strong>许道军</strong><p>产业叙事的“故事化”手段、“叙事圈套”及其“翻车”现象</p></li><li id="talk-16-5"><strong>胡伟</strong><p>写作的未来：创意写作的人机协作模式</p></li></ol></details><details class="conference-session" id="forum-17"><summary>分论坛17 · 科幻想象的历史和哲学视野（二）</summary><p><strong>A校园主教506会议室</strong></p><p class="muted">主持人：张靖宜<br>评议人：余昕</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-17-1"><strong>石志杭</strong><p>造人·造神——理解中国古代机器人想象的两个维度</p></li><li id="talk-17-2"><strong>黄亚菲</strong><p>人类增强的“减法”或“至善之人”：W.H.哈德森《水晶时代》的“乌有乡”渊源</p></li><li id="talk-17-3"><strong>吴雪梅</strong><p>情感脑机接口如何理解情绪？——基本情绪抑或情绪建构</p></li><li id="talk-17-4"><strong>王冬青</strong><p>知识的算法：写作机器与控制论美学</p></li></ol></details></div></div><div class="conference-slot"><h4>09:50—10:00</h4><p><strong>茶歇</strong></p></div><div class="conference-slot"><h4>10:00—11:10 · 2场并行</h4><div class="conference-sessions"><details class="conference-session" id="forum-18"><summary>分论坛18 · 科幻想象的历史和哲学视野（三）</summary><p><strong>A校园主教512会议室</strong></p><p class="muted">主持人：黄亚菲<br>评议人：吕广钊</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-18-1"><strong>唐桑园</strong><p>科幻与工程——基于科幻构想与科技发展的工程哲学分析</p></li><li id="talk-18-2"><strong>黄文虎</strong><p>“奇点假说”的内涵、演化逻辑与未来图景</p></li><li id="talk-18-3"><strong>卫冠群</strong><p>谁存在于被想象的未来？——生成式人工智能时代科幻想象的哲学边界</p></li><li id="talk-18-4"><strong>李建</strong><p>认知突破与时空超越：科幻想象的历史演进、哲学基底与当代价值审视</p></li></ol></details><details class="conference-session" id="forum-19"><summary>分论坛19 · 创意写作与文化产业（二）</summary><p><strong>A校园主教510会议室</strong></p><p class="muted">主持人：代露洁<br>评议人：何卓伦</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E4%B8%BB%E6%95%99%E5%AD%A6%E6%A5%BC">Google地图</a></div><ol class="conference-talks"><li id="talk-19-1"><strong>任明潇</strong><p>创伤的空间、时间与主体：新生代女作家科幻现实主义的本土经验与全球对话</p></li><li id="talk-19-2"><strong>马皓哲</strong><p>科幻评奖机制变迁中的新大众文艺研究</p></li><li id="talk-19-3"><strong>相晓冬</strong><p>“中国式太阳朋克”的可能性——传统文化、生态智慧与创意写作的本土化路径</p></li><li id="talk-19-4"><strong>卓一苇</strong><p>科幻现实主义的崴嵬之姿——第十至十五届星云奖获奖作品读札</p></li></ol></details></div></div><div class="conference-slot"><h4>11:10—11:30</h4><p><strong>茶歇</strong></p></div><div class="conference-slot"><h4>11:30—12:30</h4><p><strong>闭幕式</strong> · 重庆大学A校园博雅书院报告厅</p><p class="muted">主持人：张泰旗</p><p>“青年科幻研究表彰计划”颁奖仪式；大会总结：姜振宇。</p><div class="links"><a target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E5%8D%9A%E9%9B%85%E4%B9%A6%E9%99%A2%E6%8A%A5%E5%91%8A%E5%8E%85&city=%E9%87%8D%E5%BA%86&view=map">高德地图</a> <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%87%8D%E5%BA%86%E5%A4%A7%E5%AD%A6A%E6%A0%A1%E5%9B%AD%E5%8D%9A%E9%9B%85%E4%B9%A6%E9%99%A2%E6%8A%A5%E5%91%8A%E5%8E%85">Google地图</a></div></div><div class="conference-slot"><h4>12:30—13:30</h4><p><strong>午餐</strong></p></div></details></div>
         <div id="days"></div>
       </section>
       <section id="todos" class="card">
         <h2>待办清单</h2>
         <ul>
           <li>出发前复核 MU2845 与 3U8045 的航班动态、值机截止、托运行李规则和机场交通。</li>
-          <li>收到会议正式议程后，补充自己的报告时间、要听的论坛、报到具体地点，并确定18日最早可离开重庆大学的时间。</li>
+          <li>按已公布日程选择旁听场次，确认发言顺序和会场入口；18日闭幕式12:30结束、午餐13:30结束，据此安排取行李与赴武隆转场。</li>
           <li>预订16、17日晚重庆大学A区附近住宿；若继续选择IU酒店，复核订单状态、入住时间、18日退房后寄存和到博雅学院的步行路线。</li>
-          <li>根据17日及18日白天的完整空档选择沙坪坝模块；白公馆、渣滓洞和磁器口都不能影响会议、报告或18日晚进武隆。</li>
+          <li>17日会程至18:20、18日午餐至13:30；根据实际参会安排选择沙坪坝模块；白公馆、渣滓洞和磁器口都不能影响会议、报告或18日晚进武隆。</li>
           <li>12306放票后查询10月18日晚重庆西 → 武隆南，为“重庆大学A区 → 重庆西站 → 安检候车”预留充足时间。</li>
           <li>如果重庆西没有合适班次，再比较重庆东、重庆北等可行方案，不提前固定出发站。</li>
           <li>确认18日晚武隆南站 → 仙女山街道住宿地的出租车、网约车或酒店接站方案；无法可靠上山时改住武隆城区。</li>
@@ -820,809 +836,1043 @@
     </main>
     <script>
       const DATA = {
-        days: [
-          {
-            date: "2026-10-15",
-            title: "南京出发 · 晚抵重庆",
-            color: "#c14f5a",
-            stay: "橙栖酒店（重庆解放碑步行街洪崖洞店）｜已订",
-            places: [
-              "南京禄口国际机场 T2",
-              "重庆江北国际机场 T3",
-              "橙栖酒店（重庆解放碑步行街洪崖洞店）",
-            ],
-            note: "搭乘东方航空 MU2845，17:30从南京禄口T2出发，19:50抵达重庆江北T3。落地日晚间只完成进城与入住，不追加夜景。",
-            items: [
-              {
-                t: "17:30—19:50",
-                title: "MU2845 · 南京禄口T2 → 重庆江北T3",
-                text: "航班信息已按你提供的截图录入；提前到达机场的时间、值机截止、托运行李和登机口以东方航空通知为准。",
-                place: "重庆江北国际机场 T3",
-                status: "已确认",
-                stamp: "2026-10-15T17:30:00+08:00",
-              },
-              {
-                t: "19:50—20:50左右",
-                title: "下机 · 取行李 · 出机场",
-                text: "预留约一小时作为规划缓冲，不视为固定用时；落地延误时直接压缩晚餐，不增加夜游。",
-                place: null,
-                status: "缓冲",
-                stamp: null,
-              },
-              {
-                t: "约20:50出发 · 22:00左右到店",
-                title: "江北机场T3 → 橙栖酒店",
-                text: "已核对用时约1小时10分钟：从江北机场T3航站楼4号口进入轨道交通10号线，到红土地站换乘6号线，至小什字站下车后步行到橙栖酒店。实际到店时间仍受下机、行李、候车和步行影响。",
-                place: "橙栖酒店（重庆解放碑步行街洪崖洞店）",
-                status: "酒店已订 / 路线已核对",
-                stamp: null,
-              },
-            ],
-          },
-          {
-            date: "2026-10-16",
-            title: "山城步道下行 · 渝中街巷 · 晚间报到",
-            color: "#2579b0",
-            stay: "重庆大学A区附近／IU酒店为位置参考｜计划 / 未订",
-            places: [
-              "橙栖酒店（重庆解放碑步行街洪崖洞店）",
-              "重庆佳实养老院",
-              "重庆山城步道",
-              "重庆十八梯传统风貌区D区",
-              "重庆解放碑",
-              "重庆魁星楼",
-              "重庆戴家巷",
-              "橙栖酒店（重庆解放碑步行街洪崖洞店）",
-              "IU酒店（重庆沙坪坝高铁站三峡广场店）",
-              "重庆大学A区博雅书院",
-            ],
-            note: "从橙栖酒店退房并寄存行李后，打车到“佳实养老院”附近高处入口进入山城步道，以下坡为主串联十八梯D区、解放碑、魁星楼和戴家巷。15:40左右开始回酒店，取行李后前往重大A区附近的计划住宿点；暂以IU酒店和25分钟步行时间作为路线参考，目标18:00左右报到。",
-            items: [
-              {
-                t: "08:30—09:00",
-                title: "早餐 · 退房 · 寄存行李",
-                text: "在橙栖酒店退房并寄存大件行李，全天轻装步行；提前与酒店确认可以寄存到16:30左右。",
-                place: "橙栖酒店（重庆解放碑步行街洪崖洞店）",
-                status: "酒店已订 / 寄存需确认",
-                stamp: null,
-              },
-              {
-                t: "09:00—09:30左右",
-                title: "打车到佳实养老院附近高处入口",
-                text: "导航目的地写完整，不笼统搜索“山城巷”。从高处入口进入是本日省腿关键；下车后仍按现场路牌确认山城步道入口。",
-                place: "重庆佳实养老院",
-                status: "建议打车 / 入口需确认",
-                stamp: null,
-              },
-              {
-                t: "09:30—11:30",
-                title: "山城步道 · 以下坡为主",
-                text: "沿步道向下慢走，看老街、坡地生活与江景。这里仍有局部台阶和短坡，雨天放慢；不要反向走成长距离上坡。",
-                place: "重庆山城步道",
-                status: "主线",
-                stamp: null,
-              },
-              {
-                t: "11:30—13:00",
-                title: "十八梯D区 · 午饭",
-                text: "山城步道与十八梯连续游览，在D区附近解决午餐，避免为了餐厅打车折返。入口分区与临时施工以现场标识为准。",
-                place: "重庆十八梯传统风貌区D区",
-                status: "主线",
-                stamp: null,
-              },
-              {
-                t: "13:00—13:30左右",
-                title: "十八梯 → 解放碑",
-                text: "按步行路线前往，不为短距离重新打车；这段并非完全没有上坡，只是避免连续二三十分钟纯爬坡。",
-                place: "重庆解放碑",
-                status: "步行 / 有短坡",
-                stamp: null,
-              },
-              {
-                t: "13:30—14:15",
-                title: "解放碑",
-                text: "看城市中心与街巷，不把购物安排成硬任务。若当天步行偏慢，从这里开始压缩停留以保证取行李和报到。",
-                place: "重庆解放碑",
-                status: "建议",
-                stamp: null,
-              },
-              {
-                t: "14:15—15:00",
-                title: "魁星楼",
-                text: "保持解放碑→魁星楼的方向，重点体验桥、楼与地面标高交错的立体空间；按现场开放和施工情况绕行。",
-                place: "重庆魁星楼",
-                status: "建议",
-                stamp: null,
-              },
-              {
-                t: "15:00—15:40",
-                title: "戴家巷",
-                text: "继续原方向慢逛，不再追加洪崖洞。15:40左右开始回酒店，为搬家、入住和步行去报到留出缓冲。",
-                place: "重庆戴家巷",
-                status: "建议",
-                stamp: null,
-              },
-              {
-                t: "15:40—16:10左右",
-                title: "返回橙栖酒店 · 取行李",
-                text: "正式结束渝中行程；若前段延误，优先压缩解放碑、魁星楼或戴家巷的停留，不拖延向沙坪坝转场。",
-                place: "橙栖酒店（重庆解放碑步行街洪崖洞店）",
-                status: "缓冲",
-                stamp: null,
-              },
-              {
-                t: "16:10—17:01左右",
-                title: "橙栖酒店 → 重大A区附近住宿点",
-                text: "若最终选择IU酒店，两处之间按已核对的51分钟规划；若更换酒店，须重新查询。实际路线、候车和拖箱步行另算，不把51分钟视为含入住手续的总耗时。",
-                place: "IU酒店（重庆沙坪坝高铁站三峡广场店）",
-                status: "路线已核对 / 酒店未订",
-                stamp: null,
-              },
-              {
-                t: "17:01—17:25左右",
-                title: "重大附近住宿点办理入住 · 放行李",
-                text: "入住后只带会议所需物品。若前段延误，压缩戴家巷停留，确保仍有步行和找会场缓冲。",
-                place: "IU酒店（重庆沙坪坝高铁站三峡广场店）",
-                status: "计划入住 / 酒店未订",
-                stamp: null,
-              },
-              {
-                t: "17:25—17:50左右",
-                title: "IU酒店 → 重庆大学博雅学院",
-                text: "若最终住IU酒店，按已核对的25分钟步行时间规划；若更换酒店须重新查询。重庆有坡地和校内找楼时间，出发前再确认入口。",
-                place: "重庆大学A区博雅书院",
-                status: "步行路线已核对",
-                stamp: null,
-              },
-              {
-                t: "约18:00—18:30",
-                title: "博雅书院报到",
-                text: "报到总窗口为14:00—20:00，办理一次即可；目标18:00左右到达，18:30前完成。具体房间、入口与联系人以会务通知为准。",
-                place: "重庆大学A区博雅书院",
-                status: "拟定锚点",
-                stamp: "2026-10-16T18:00:00+08:00",
-              },
-              {
-                t: "报到后",
-                title: "重大附近晚餐 · 休息",
-                text: "第二天开始会议，晚间不再追加磁器口或跨区夜景；顺便确认17日酒店到会场的路线。",
-                place: "重庆大学A区博雅书院",
-                status: "建议",
-                stamp: null,
-              },
-            ],
-          },
-          {
-            date: "2026-10-17",
-            title: "会议 · 沙坪坝弹性模块 / 夜景择一",
-            color: "#8866ba",
-            stay: "重庆大学A区附近／IU酒店为位置参考｜计划 / 未订",
-            places: [
-              "IU酒店（重庆沙坪坝高铁站三峡广场店）",
-              "重庆大学A区博雅书院",
-              "重庆白公馆",
-              "重庆渣滓洞监狱旧址",
-              "重庆磁器口古镇",
-              "重庆大剧院江滩",
-              "重庆千厮门嘉陵江大桥",
-              "重庆洪崖洞",
-            ],
-            note: "以IU酒店为位置参考，步行到博雅学院按25分钟规划；会议与自己的报告绝对优先。只有出现完整空档才启用附近模块：约3小时可选白公馆＋渣滓洞，约2—3小时可选磁器口＋晚饭；跨区夜景优先只考虑17日晚。",
-            items: [
-              {
-                t: "全天待定",
-                title: "听论坛 / 汇报",
-                text: "会议日程尚未公布，不把任何游览活动排成硬约束。按25分钟步行时间再加找楼缓冲，从IU酒店提前出发；准备离线PDF、PPT及备份。",
-                place: "重庆大学A区博雅书院",
-                status: "日程待公布",
-                stamp: null,
-              },
-              {
-                t: "连续空档约3小时",
-                title: "模块A｜白公馆＋渣滓洞",
-                text: "从重大A区出发，就近完成两个白天限定的红岩遗址；白公馆目前公布16:30停止入场。开放、免费预约规则、场次和往返时间均在临行前通过官方渠道复核；空档不足就整组取消。",
-                place: "重庆白公馆",
-                status: "可选",
-                stamp: null,
-              },
-              {
-                t: "下午早结束约2—3小时",
-                title: "模块B｜磁器口＋晚饭",
-                text: "若当天结束较早，可单独去磁器口慢逛并吃晚饭；若模块A结束后仍有充足时间，也可顺接，但不把A＋B写成刚性任务。T003、T198近期仍串联白公馆、渣滓洞与磁器口，实际运营和候车当天查询。",
-                place: "重庆磁器口古镇",
-                status: "可选",
-                stamp: null,
-              },
-              {
-                t: "17日晚结束较早且有余力",
-                title: "夜景项目｜大剧院江滩 → 千厮门 → 洪崖洞",
-                text: "只在17日会议结束较早且体力允许时，从重大跨区前往大剧院江滩，再步行经千厮门大桥看洪崖洞外部夜景，随后回重大。18日晚优先进武隆，不再安排这条夜景线；亮灯时间临行前核对。",
-                place: "重庆大剧院江滩",
-                status: "可选 / 亮灯待确认",
-                stamp: null,
-              },
-            ],
-          },
-          {
-            date: "2026-10-18",
-            title: "会议 · 会后取行李 · 晚间进武隆",
-            color: "#b66133",
-            stay: "武隆｜优先仙女山街道／游客接待中心附近｜计划 / 未订",
-            places: [
-              "IU酒店（重庆沙坪坝高铁站三峡广场店）",
-              "重庆大学A区博雅书院",
-              "重庆磁器口古镇",
-              "IU酒店（重庆沙坪坝高铁站三峡广场店）",
-              "重庆西站",
-              "武隆南站",
-              "仙女山游客接待中心",
-            ],
-            note: "白天继续以会议和自己的报告为主。只有结束足够早才考虑磁器口；最重要的转场是会后取全部行李，前往重庆西站，乘待12306确认的晚间高铁到武隆南，再用预先确认的夜间交通前往住宿地。",
-            items: [
-              {
-                t: "按会议时间提前约45—60分钟",
-                title: "退房 · 寄存全部行李 · 步行去重大",
-                text: "16、17日晚重大A区附近住宿尚未预订；订房时确认18日退房后可寄存到会后。以IU酒店为位置参考时，步行到博雅学院按约25分钟规划，另留退房和校内找楼时间。",
-                place: "IU酒店（重庆沙坪坝高铁站三峡广场店）",
-                status: "住宿未订 / 寄存需确认",
-                stamp: null,
-              },
-              {
-                t: "上午至下午待定",
-                title: "继续会议 · 完成报告",
-                text: "会议日程尚未公布。收到正式议程后，先确定报告与论坛，再计算最早可离开重大、取行李并到重庆西站的时间。",
-                place: "重庆大学A区博雅书院",
-                status: "日程待公布",
-                stamp: null,
-              },
-              {
-                t: "仅在会议结束足够早时",
-                title: "沙坪坝轻量模块｜磁器口",
-                text: "磁器口只是可选项。必须先确认仍能返回住宿地取行李，并为前往重庆西站、安检和候车保留充分余量；任何不确定都直接取消。",
-                place: "重庆磁器口古镇",
-                status: "可选 / 不得影响高铁",
-                stamp: null,
-              },
-              {
-                t: "会后按已购车次倒推",
-                title: "取行李 → 重庆西站",
-                text: "带全部行李离开沙坪坝，不再搬回渝中。具体出发时间由会议结束时刻和已购高铁共同决定；地面交通、进站安检和候车均单独留缓冲。",
-                place: "重庆西站",
-                status: "关键转场 / 车次待确认",
-                stamp: null,
-              },
-              {
-                t: "晚间 · 待12306放票",
-                title: "重庆西 → 武隆南",
-                text: "优先寻找会议结束后仍有充分缓冲的晚间列车，目的站必须是武隆南站。若重庆西没有合适班次，再比较重庆东或重庆北，不提前硬编码班次、票价和出发站。",
-                place: "武隆南站",
-                status: "高铁未订",
-                stamp: null,
-              },
-              {
-                t: "抵达后",
-                title: "武隆南 → 武隆住宿地",
-                text: "夜间公共旅游接驳可能已结束。订房前确认出租车、网约车或酒店接站；优先住仙女山街道／游客接待中心附近，为19日早晨节省转场，无法可靠上山时改住武隆城区。",
-                place: "仙女山游客接待中心",
-                status: "住宿未订 / 夜间接驳待确认",
-                stamp: null,
-              },
-            ],
-          },
-          {
-            date: "2026-10-19",
-            title: "武隆完整日 · 天生三桥为核心",
-            color: "#198471",
-            stay: "小什字附近／优先橙栖酒店｜计划 / 未订",
-            places: [
-              "仙女山游客接待中心",
-              "武隆天生三桥",
-              "武隆龙水峡地缝",
-              "仙女山游客接待中心",
-              "仙女山国家森林公园",
-              "仙女山游客接待中心",
-              "武隆南站",
-              "重庆小什字地铁站",
-              "橙栖酒店（重庆解放碑步行街洪崖洞店）",
-            ],
-            note: "醒来已经在武隆，天生三桥是核心，天生三桥＋龙水峡地缝为首选组合；仙女山只在返程高铁、天气、接驳和体力允许时追加。傍晚由武隆南返重庆，目标约20:00—20:30回到渝中。",
-            items: [
-              {
-                t: "早晨",
-                title: "退房／寄存行李 · 前往游客接待中心",
-                text: "若住仙女山街道，优先在酒店或游客接待中心附近寄存大件行李后轻装游览；若住武隆城区，则把上山交通提前计入。寄存地点、开放时间和返程取行李方式必须在订房时确认。",
-                place: "仙女山游客接待中心",
-                status: "住宿与寄存待确认",
-                stamp: null,
-              },
-              {
-                t: "上午优先",
-                title: "天生三桥",
-                text: "全天第一核心景点。正常完成天然桥、天坑与天福官驿，不为了凑齐三景而赶路；门票、景区交通、开放和雨天管控以当天公告为准。",
-                place: "武隆天生三桥",
-                status: "核心 / 需购票",
-                stamp: null,
-              },
-              {
-                t: "中午至下午前段",
-                title: "龙水峡地缝",
-                text: "作为首选第二景点加入，预留景区车、排队、午餐和湿滑步道缓冲。强降雨、临时关闭、接驳延迟或体力不足时，优先保证天生三桥和返程高铁。",
-                place: "武隆龙水峡地缝",
-                status: "优先 / 需购票",
-                stamp: null,
-              },
-              {
-                t: "下午视现场决定",
-                title: "仙女山国家森林公园",
-                text: "第三优先，仅在当天时间、天气、接驳和体力允许时追加。若会导致取行李或前往武隆南过晚，主动删除仙女山，不把三景写成必须全部完成。",
-                place: "仙女山国家森林公园",
-                status: "可选 / 需购票",
-                stamp: null,
-              },
-              {
-                t: "按已购返程车次倒推",
-                title: "取行李 · 前往武隆南站",
-                text: "本日不设固定分钟判定线。真正硬约束是不能错过已购返渝高铁；从开车时间反推景区撤离、取行李、下山、进站和候车，并给不按点发车的接驳留余量。",
-                place: "武隆南站",
-                status: "关键衔接",
-                stamp: null,
-              },
-              {
-                t: "傍晚 · 待12306放票",
-                title: "武隆南 → 重庆 → 小什字附近入住",
-                text: "尽量选择能在约20:00—20:30回到渝中区的班次，但具体车次、重庆到达站和市内转场均待确认。到店后办理入住，19、20日晚住宿目前均未订。",
-                place: "橙栖酒店（重庆解放碑步行街洪崖洞店）",
-                status: "高铁与酒店未订",
-                stamp: null,
-              },
-              {
-                t: "抵达较早且有余力",
-                title: "渝中夜游｜只选1—2处",
-                text: "可从解放碑、洪崖洞、千厮门大桥、朝天门中选1—2处；若17或18日已经看过洪崖洞，就改为解放碑、朝天门或夜宵散步。抵达太晚则直接休息。",
-                place: "重庆解放碑",
-                status: "可选",
-                stamp: null,
-              },
-            ],
-          },
-          {
-            date: "2026-10-20",
-            title: "南山历史 · 古道下行 · 开埠老街",
-            color: "#6f8734",
-            stay: "小什字附近／优先橙栖酒店｜计划 / 未订",
-            places: [
-              "橙栖酒店（重庆解放碑步行街洪崖洞店）",
-              "重庆抗战遗址博物馆",
-              "重庆黄桷垭老街",
-              "重庆黄葛古道",
-              "重庆龙门浩老街",
-              "重庆下浩里",
-              "橙栖酒店（重庆解放碑步行街洪崖洞店）",
-            ],
-            note: "从战时重庆、山上聚落与古代川黔通道，一路以下山为主走到开埠老街。主线不含老君洞；南山植物园和一棵树只作备选，不破坏黄桷垭—黄葛古道—龙门浩的连续方向。",
-            items: [
-              {
-                t: "08:00—08:40",
-                title: "早餐 · 整理轻装",
-                text: "这一天台阶和步行较多，正常吃早餐；大件行李留在计划入住的小什字附近酒店；是否可寄存须在订房时确认。",
-                place: null,
-                status: "建议",
-                stamp: null,
-              },
-              {
-                t: "08:40—09:20左右",
-                title: "橙栖酒店 → 重庆抗战遗址博物馆",
-                text: "南山公共交通转乘耗时且上坡，早上这段优先打车；40分钟只是规划窗口，实际用时按酒店位置、拥堵和入口重算。",
-                place: "重庆抗战遗址博物馆",
-                status: "建议打车",
-                stamp: null,
-              },
-              {
-                t: "09:20—11:20",
-                title: "重庆抗战遗址博物馆",
-                text: "集中看抗战时期重庆作为战时首都留下的建筑与遗址。官方2026年名录目前列淡季9:00—17:30、闭馆前一小时停止售票，成人票18元并提供预约渠道；票价、预约与临时闭馆以当天最新公告为准。",
-                place: "重庆抗战遗址博物馆",
-                status: "需购票 / 复核开放",
-                stamp: null,
-              },
-              {
-                t: "11:20—11:50",
-                title: "前往黄桷垭老街",
-                text: "在南山内部横向移动，具体公交或打车路线当天查询；不要先下山再折返。",
-                place: "重庆黄桷垭老街",
-                status: "建议",
-                stamp: null,
-              },
-              {
-                t: "11:50—13:30",
-                title: "黄桷垭老街 · 午饭",
-                text: "先吃饭，再看山上聚落与老街。南岸区官方资料列老街全长约600米，有175栋巴渝民居和文物故居；它与下午古道自然衔接。",
-                place: "重庆黄桷垭老街",
-                status: "建议",
-                stamp: null,
-              },
-              {
-                t: "13:30—15:30左右",
-                title: "黄葛古道 · 向山下走",
-                text: "官方资料列古道全长约3.6公里，上接黄桷垭、下有通向龙门浩与海棠溪的支线。选择下山方向仍有连续石阶；放慢速度，按现场标识走向龙门浩支线，雨天缩短或取消。",
-                place: "重庆黄葛古道",
-                status: "建议",
-                stamp: null,
-              },
-              {
-                t: "15:30—16:10",
-                title: "前往龙门浩 · 途中休息",
-                text: "把这段作为找出口、补水和交通衔接缓冲，不追求固定到达分钟数；若古道出口不在预想位置，用地图重新定位。",
-                place: "重庆龙门浩老街",
-                status: "缓冲",
-                stamp: null,
-              },
-              {
-                t: "16:10—18:20",
-                title: "龙门浩老街",
-                text: "从白天逛到暮色，观察开埠、抗战与巴渝城市建筑层叠；台阶较多，优先连续路线而非逐栋打卡。",
-                place: "重庆龙门浩老街",
-                status: "建议",
-                stamp: null,
-              },
-              {
-                t: "18:20—20:30左右",
-                title: "下浩里 · 晚饭",
-                text: "下浩里与龙门浩连续游览。吃完饭回小什字附近酒店，不再为了老君洞、一棵树或植物园折返山腰。",
-                place: "重庆下浩里",
-                status: "建议",
-                stamp: null,
-              },
-            ],
-          },
-          {
-            date: "2026-10-21",
-            title: "三峡博物馆 · 鹅岭下行线 · 返程",
-            color: "#b08b24",
-            stay: "当晚返程｜航班信息已确认",
-            places: [
-              "橙栖酒店（重庆解放碑步行街洪崖洞店）",
-              "重庆中国三峡博物馆",
-              "重庆人民广场",
-              "重庆人民大礼堂",
-              "重庆鹅岭公园",
-              "重庆鹅岭二厂文创公园",
-              "重庆李子坝单轨穿楼观景平台",
-              "重庆李子坝地铁站",
-              "重庆曾家岩地铁站",
-              "重庆中国三峡博物馆",
-              "重庆曾家岩地铁站",
-              "重庆江北国际机场 T3",
-              "南京禄口国际机场 T1",
-            ],
-            note: "08:10从计划入住的橙栖酒店退房并带全部行李离开，只在三峡博物馆／曾家岩区域寄存一次。午饭后打车上鹅岭，再按鹅岭公园—鹅岭二厂—李子坝顺坡下行；约15:30乘2号线回曾家岩取行李，转10号线去江北T3，目标17:00左右到机场。",
-            items: [
-              {
-                t: "08:10—08:40左右",
-                title: "橙栖退房 · 携行李前往三峡博物馆",
-                text: "退房后不再回酒店，带行李一次性离开；这段按约30分钟规划，实际打车或公共交通方式当天查询。",
-                place: "重庆中国三峡博物馆",
-                status: "住宿未订 / 退房日",
-                stamp: null,
-              },
-              {
-                t: "08:40—09:00左右",
-                title: "抵达三峡博物馆／曾家岩 · 寄存行李",
-                text: "官方可确认博物馆入口附近设有自动寄存处及大件寄存服务，但柜子尺寸、收费、开放时段和当天余量以现场为准。旅行者曾反馈楼梯下方有约5元、可存至17:30左右的馆外寄存点；这只是当天需核实的备选，不作为官方承诺。",
-                place: "重庆中国三峡博物馆",
-                status: "馆内官方信息 / 馆外经验待核实",
-                stamp: null,
-              },
-              {
-                t: "09:00—11:15",
-                title: "重庆中国三峡博物馆",
-                text: "至少留约两小时，重点看巴渝文化、三峡与城市历史展陈。最新官方公告已取消预约，凭有效身份证件入馆；开放和临展仍以出行日前公告为准。",
-                place: "重庆中国三峡博物馆",
-                status: "免费 / 带证件",
-                stamp: null,
-              },
-              {
-                t: "11:15—11:45",
-                title: "人民广场＋人民大礼堂",
-                text: "两处与博物馆相邻，作为连续节点处理；主要看人民广场和大礼堂外观，不进入耗时较长的收费参观。",
-                place: "重庆人民大礼堂",
-                status: "建议",
-                stamp: null,
-              },
-              {
-                t: "11:45—12:30",
-                title: "附近午饭",
-                text: "在博物馆、人民广场一带就近解决；12:30按时离开，不为餐厅跨区折返。",
-                place: "重庆人民广场",
-                status: "建议",
-                stamp: null,
-              },
-              {
-                t: "12:30—12:50左右",
-                title: "直接打车去鹅岭公园",
-                text: "最后一天用打车换取时间和体力，不为省少量车费设计复杂轨道绕行；拥堵时优先缩短鹅岭停留。",
-                place: "重庆鹅岭公园",
-                status: "建议打车",
-                stamp: null,
-              },
-              {
-                t: "12:50—13:35",
-                title: "鹅岭公园",
-                text: "短时看园林与高处视野，不绕远路逐点打卡；13:35开始向鹅岭二厂步行。",
-                place: "重庆鹅岭公园",
-                status: "主线",
-                stamp: null,
-              },
-              {
-                t: "13:35—14:30",
-                title: "步行到鹅岭二厂 · 游览",
-                text: "公园到二厂连续步行，保留找路和局部坡度缓冲；园区停留到14:30左右。",
-                place: "重庆鹅岭二厂文创公园",
-                status: "主线 / 步行",
-                stamp: null,
-              },
-              {
-                t: "14:30—15:00左右",
-                title: "顺坡下行前往李子坝",
-                text: "按地图选择下行路线，不建议反向爬坡；仍可能有台阶和不平路面，雨天、拖累或封路时改为短程打车。",
-                place: "重庆李子坝单轨穿楼观景平台",
-                status: "步行 / 现场调整",
-                stamp: null,
-              },
-              {
-                t: "15:00—15:30",
-                title: "李子坝观景平台",
-                text: "看单轨穿楼并休息，15:30必须离开；不要为等待特定列车或机位推迟返程。",
-                place: "重庆李子坝单轨穿楼观景平台",
-                status: "主线",
-                stamp: null,
-              },
-              {
-                t: "约15:30—15:45",
-                title: "李子坝乘2号线 → 曾家岩",
-                text: "从李子坝站乘2号线直接到曾家岩站；进站、候车和从站口步行回博物馆的实际时间当天复核。",
-                place: "重庆曾家岩地铁站",
-                status: "公共交通",
-                stamp: null,
-              },
-              {
-                t: "15:45—16:00左右",
-                title: "在上午同一寄存点取行李",
-                text: "不返回小什字，不去观音桥，也不安排二次寄存。若步行或领取变慢，可顺延到16:15，但不再增加景点。",
-                place: "重庆中国三峡博物馆",
-                status: "关键衔接",
-                stamp: null,
-              },
-              {
-                t: "约16:00—16:15出发",
-                title: "曾家岩乘10号线 → 江北机场T3",
-                text: "取行李后回曾家岩站，直接乘10号线前往江北机场T3；以当天列车与航班要求为准。",
-                place: "重庆江北国际机场 T3",
-                status: "公共交通 / 已确认航站楼",
-                stamp: null,
-              },
-              {
-                t: "约17:00前后",
-                title: "抵达重庆江北机场T3",
-                text: "目标为19:10起飞前预留约两小时办理值机、托运、安检和前往登机口；若下午行程延误，先删景点，不压缩机场缓冲。",
-                place: "重庆江北国际机场 T3",
-                status: "返程缓冲",
-                stamp: null,
-              },
-              {
-                t: "19:10—21:15",
-                title: "3U8045 · 重庆江北T3 → 南京禄口T1",
-                text: "航班信息已按你提供的截图录入；到达南京后的接送或公共交通另行确认，航班动态以四川航空通知为准。",
-                place: "南京禄口国际机场 T1",
-                status: "已确认",
-                stamp: "2026-10-21T19:10:00+08:00",
-              },
-            ],
-          },
-        ],
-        sources: [
-          [
-            "三峡博物馆：取消预约公告",
-            "https://www.3gmuseum.cn/web/article/1430010139317059584/web/content_1430010139317059584.html",
-          ],
-          [
-            "三峡博物馆：参观须知（含停止入馆时间）",
-            "https://www.3gmuseum.cn/web/article/1430010416905293824/web/content_1430010416905293824.html",
-          ],
-          [
-            "三峡博物馆：便民服务与自动寄存处",
-            "https://www.3gmuseum.cn/web/column/col5009756.html",
-          ],
-          [
-            "重庆书城：2025年国泰广场B2过渡卖场报道",
-            "https://www.cqnews.net/1/detail/1422866538635137024/app/content_1422866538635137024.html",
-          ],
-          [
-            "重庆大学博雅学院：联系地址",
-            "https://lac.cqu.edu.cn/xygk/lxxx.htm",
-          ],
-          [
-            "白公馆：重庆市政府2026年介绍与开放时间",
-            "https://www.cq.gov.cn/zjcq/cycq/jplyxl/dsy/hyzj/202608/t20260826_15982440.html",
-          ],
-          [
-            "磁器口古镇：重庆市政府2026年交通信息",
-            "https://www.cq.gov.cn/zjcq/cycq/jplyxl/dsy/dsjp/202608/t20260826_15982326.html",
-          ],
-          [
-            "T003、T198近期运营与串联景点：重庆市政府2026年9月信息",
-            "https://cq.gov.cn/ywdt/bmts/202609/t20260907_16043757.html",
-          ],
-          [
-            "白公馆、渣滓洞预约参观提示（具体规则临行前复核）",
-            "https://admin.cq.gov.cn/ywdt/bmts/202409/t20240910_13613256.html",
-          ],
-          [
-            "洪崖洞亮灯时间季节调整案例：重庆日报2026年4月报道",
-            "https://www.cqrb.cn/shishi/2026-04-11/2632582_pc.html",
-          ],
-          [
-            "重庆抗战遗址博物馆：南岸区2026年A级景区名录",
-            "https://www.cqna.gov.cn/bm/qwhlyw/zwgk_59968/zfxxgkml/jczwgkwlw/ly/ggfw_407286/gglyjgml/202601/t20260130_15368257.html",
-          ],
-          [
-            "黄桷垭老街：南岸区官方介绍",
-            "https://www.cqna.gov.cn/zjna/ns/hlns/nsjd/202601/t20260129_15362701.html",
-          ],
-          [
-            "黄葛古道：重庆市政府介绍",
-            "https://www.cq.gov.cn/ywdt/jrcq/202101/t20210131_8862580.html",
-          ],
-          [
-            "下浩里：南岸区官方介绍",
-            "https://www.cqna.gov.cn/zwxx_254/bmjz/202305/t20230524_11993865.html",
-          ],
-          [
-            "武隆区A级旅游景区名录（2026年版）：门票与开放时间",
-            "https://cqwl.gov.cn/bmjz_sites/bm/wlw/zwgk_98942/zfxxgkml/jczwgkzl/ggwhfwly/ggfw/ggwljgmd/202601/t20260104_15286062.html",
-          ],
-          [
-            "武隆南站公交与旅游专线运行信息（班次仍需出行日复核）",
-            "https://cqrb.cn/contry/dy41/2025-07-03/2343308_pc.html",
-          ],
-          [
-            "武隆景区因天气临时停运与恢复的官方提示案例",
-            "https://www.cq.gov.cn/ywdt/bmts/202606/t20260608_15737519.html",
-          ],
-        ],
-      };
+  "days": [
+    {
+      "date": "2026-10-15",
+      "title": "南京出发 · 晚抵重庆",
+      "color": "#c14f5a",
+      "stay": "橙栖酒店（重庆解放碑步行街洪崖洞店）｜已订",
+      "places": [
+        "南京禄口国际机场 T2",
+        "重庆江北国际机场 T3",
+        "橙栖酒店（重庆解放碑步行街洪崖洞店）"
+      ],
+      "note": "搭乘东方航空 MU2845，17:30从南京禄口T2出发，19:50抵达重庆江北T3。落地日晚间只完成进城与入住，不追加夜景。",
+      "items": [
+        {
+          "t": "17:30—19:50",
+          "title": "MU2845 · 南京禄口T2 → 重庆江北T3",
+          "text": "航班信息已按你提供的截图录入；提前到达机场的时间、值机截止、托运行李和登机口以东方航空通知为准。",
+          "place": "重庆江北国际机场 T3",
+          "status": "已确认",
+          "stamp": "2026-10-15T17:30:00+08:00"
+        },
+        {
+          "t": "19:50—20:50左右",
+          "title": "下机 · 取行李 · 出机场",
+          "text": "预留约一小时作为规划缓冲，不视为固定用时；落地延误时直接压缩晚餐，不增加夜游。",
+          "place": null,
+          "status": "缓冲",
+          "stamp": null
+        },
+        {
+          "t": "约20:50出发 · 22:00左右到店",
+          "title": "江北机场T3 → 橙栖酒店",
+          "text": "已核对用时约1小时10分钟：从江北机场T3航站楼4号口进入轨道交通10号线，到红土地站换乘6号线，至小什字站下车后步行到橙栖酒店。实际到店时间仍受下机、行李、候车和步行影响。",
+          "place": "橙栖酒店（重庆解放碑步行街洪崖洞店）",
+          "status": "酒店已订 / 路线已核对",
+          "stamp": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-16",
+      "title": "山城步道下行 · 渝中街巷 · 晚间报到",
+      "color": "#2579b0",
+      "stay": "重庆大学A区附近／IU酒店为位置参考｜计划 / 未订",
+      "places": [
+        "橙栖酒店（重庆解放碑步行街洪崖洞店）",
+        "重庆佳实养老院",
+        "重庆山城步道",
+        "重庆十八梯传统风貌区D区",
+        "重庆解放碑",
+        "重庆魁星楼",
+        "重庆戴家巷",
+        "橙栖酒店（重庆解放碑步行街洪崖洞店）",
+        "IU酒店（重庆沙坪坝高铁站三峡广场店）",
+        "重庆丽苑维景国际大酒店"
+      ],
+      "note": "从橙栖退房并寄存行李，打车到佳实养老院附近高处入口，沿山城步道下行，经十八梯、解放碑、魁星楼和戴家巷后取行李，前往沙坪坝住宿点放行李。约18:00到重庆丽苑维景国际大酒店报到；博雅书院报告厅是17—18日开闭幕式会场。",
+      "items": [
+        {
+          "t": "08:30—09:00",
+          "title": "早餐 · 退房 · 寄存行李",
+          "text": "在橙栖酒店退房并寄存大件行李，全天轻装步行；提前与酒店确认可以寄存到16:30左右。",
+          "place": "橙栖酒店（重庆解放碑步行街洪崖洞店）",
+          "status": "酒店已订 / 寄存需确认",
+          "stamp": null
+        },
+        {
+          "t": "09:00—09:30左右",
+          "title": "打车到佳实养老院附近高处入口",
+          "text": "导航目的地写完整，不笼统搜索“山城巷”。从高处入口进入是本日省腿关键；下车后仍按现场路牌确认山城步道入口。",
+          "place": "重庆佳实养老院",
+          "status": "建议打车 / 入口需确认",
+          "stamp": null
+        },
+        {
+          "t": "09:30—11:30",
+          "title": "山城步道 · 以下坡为主",
+          "text": "沿步道向下慢走，看老街、坡地生活与江景。这里仍有局部台阶和短坡，雨天放慢；不要反向走成长距离上坡。",
+          "place": "重庆山城步道",
+          "status": "主线",
+          "stamp": null
+        },
+        {
+          "t": "11:30—13:00",
+          "title": "十八梯D区 · 午饭",
+          "text": "山城步道与十八梯连续游览，在D区附近解决午餐，避免为了餐厅打车折返。入口分区与临时施工以现场标识为准。",
+          "place": "重庆十八梯传统风貌区D区",
+          "status": "主线",
+          "stamp": null
+        },
+        {
+          "t": "13:00—13:30左右",
+          "title": "十八梯 → 解放碑",
+          "text": "按步行路线前往，不为短距离重新打车；这段并非完全没有上坡，只是避免连续二三十分钟纯爬坡。",
+          "place": "重庆解放碑",
+          "status": "步行 / 有短坡",
+          "stamp": null
+        },
+        {
+          "t": "13:30—14:15",
+          "title": "解放碑",
+          "text": "看城市中心与街巷，不把购物安排成硬任务。若当天步行偏慢，从这里开始压缩停留以保证取行李和报到。",
+          "place": "重庆解放碑",
+          "status": "建议",
+          "stamp": null
+        },
+        {
+          "t": "14:15—15:00",
+          "title": "魁星楼",
+          "text": "保持解放碑→魁星楼的方向，重点体验桥、楼与地面标高交错的立体空间；按现场开放和施工情况绕行。",
+          "place": "重庆魁星楼",
+          "status": "建议",
+          "stamp": null
+        },
+        {
+          "t": "15:00—15:40",
+          "title": "戴家巷",
+          "text": "继续原方向慢逛。15:40左右开始回酒店，为取行李、搬家和前往报到酒店留出缓冲。",
+          "place": "重庆戴家巷",
+          "status": "建议",
+          "stamp": null
+        },
+        {
+          "t": "15:40—16:10左右",
+          "title": "返回橙栖酒店 · 取行李",
+          "text": "正式结束渝中行程；若前段延误，优先压缩解放碑、魁星楼或戴家巷的停留，不拖延向沙坪坝转场。",
+          "place": "橙栖酒店（重庆解放碑步行街洪崖洞店）",
+          "status": "缓冲",
+          "stamp": null
+        },
+        {
+          "t": "16:10—17:01左右",
+          "title": "橙栖酒店 → 重大A区附近住宿点",
+          "text": "若最终选择IU酒店，两处之间按已核对的51分钟规划；若更换酒店，须重新查询。实际路线、候车和拖箱步行另算，不把51分钟视为含入住手续的总耗时。",
+          "place": "IU酒店（重庆沙坪坝高铁站三峡广场店）",
+          "status": "路线已核对 / 酒店未订",
+          "stamp": null
+        },
+        {
+          "t": "17:01—17:25左右",
+          "title": "重大附近住宿点办理入住 · 放行李",
+          "text": "入住后只带报到所需物品。若前段延误，压缩戴家巷停留，为前往报到酒店和找会务接待点留足缓冲。",
+          "place": "IU酒店（重庆沙坪坝高铁站三峡广场店）",
+          "status": "计划入住 / 酒店未订",
+          "stamp": null
+        },
+        {
+          "t": "放下行李后 · 用时另查",
+          "title": "住宿点 → 丽苑维景国际大酒店",
+          "text": "16日注册地点以新日程为准。IU酒店到博雅学院的25分钟步行估算不适用于本次报到；出发前查询住宿点到报到酒店的实际路线。",
+          "place": "重庆丽苑维景国际大酒店",
+          "status": "报到地点已知 / 交通待查",
+          "stamp": null
+        },
+        {
+          "t": "约18:00—18:30",
+          "title": "丽苑维景国际大酒店报到",
+          "text": "日程列报到窗口14:00—20:00，窗口内办理一次即可。18:00是个人规划到达时间；具体酒店楼层与房间以会务通知为准。",
+          "place": "重庆丽苑维景国际大酒店",
+          "status": "地点与窗口已知 / 到达时间拟定",
+          "stamp": "2026-10-16T18:00:00+08:00"
+        },
+        {
+          "t": "报到后",
+          "title": "重大附近晚餐 · 休息",
+          "text": "第二天开始会议，晚间不再追加磁器口或跨区夜景；顺便确认17日酒店到会场的路线。",
+          "place": "重庆丽苑维景国际大酒店",
+          "status": "建议",
+          "stamp": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-17",
+      "title": "开幕式 · 主旨演讲 · 分论坛",
+      "color": "#8866ba",
+      "stay": "重庆大学A区附近／IU酒店为位置参考｜计划 / 未订",
+      "places": [
+        "IU酒店（重庆沙坪坝高铁站三峡广场店）",
+        "重庆大学A校园博雅书院报告厅",
+        "重庆大学A校园主教学楼",
+        "重庆白公馆",
+        "重庆渣滓洞监狱旧址",
+        "重庆磁器口古镇",
+        "重庆大剧院江滩",
+        "重庆千厮门嘉陵江大桥",
+        "重庆洪崖洞"
+      ],
+      "note": "日程安排09:00开幕，09:20主旨演讲；10:30起按五个时段并行举行分论坛，最晚18:20结束，19:00晚餐。各场详细题目见会议日程。游览仅在明确不参加相应场次时考虑，不能把茶歇当作跨区空档。",
+      "items": [
+        {
+          "t": "09:00—09:20",
+          "title": "开幕式",
+          "text": "主持人张泰旗；李广益致辞；《中国科幻文学大系·晚清卷》（第三辑）首发式。建议提前到场。",
+          "place": "重庆大学A校园博雅书院报告厅",
+          "status": "会议日程",
+          "stamp": "2026-10-17T09:00:00+08:00"
+        },
+        {
+          "t": "09:20—10:00",
+          "title": "冯象主旨演讲",
+          "text": "通用智能：谁的末日？——从《启示录》和菲尔兹奖得主齐默曼的大灭绝分类说起。原图未单列本环节会场，以现场安排为准。",
+          "place": null,
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "10:00—10:30",
+          "title": "合影、茶歇",
+          "text": "随后前往各分论坛所在的主教会议室。",
+          "place": null,
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "10:30—11:30",
+          "title": "分论坛1—3（并行）",
+          "text": "主教512：科幻文学与20世纪中国（一）；510：当代中国科技人文批评（一）；506：中外科幻中的家庭、性别与技术（一）。",
+          "place": "重庆大学A校园主教学楼",
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "11:30—13:30",
+          "title": "午餐、午休",
+          "text": "下午首场13:30开始。",
+          "place": null,
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "13:30—14:30",
+          "title": "分论坛4—6（并行）",
+          "text": "主教512、510、506三场并行；完整报告列表见下方日程。",
+          "place": "重庆大学A校园主教学楼",
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "14:30—14:50",
+          "title": "茶歇",
+          "text": "休息与换场。",
+          "place": null,
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "14:50—15:50",
+          "title": "分论坛7—9（并行）",
+          "text": "主教512、510、506三场并行。",
+          "place": "重庆大学A校园主教学楼",
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "15:50—16:10",
+          "title": "茶歇",
+          "text": "休息与换场。",
+          "place": null,
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "16:10—17:30",
+          "title": "分论坛10—12（并行）",
+          "text": "主教512、510、506三场并行。",
+          "place": "重庆大学A校园主教学楼",
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "17:30—18:20",
+          "title": "分论坛13—14（并行）",
+          "text": "主教512：中外科幻中的家庭、性别与技术（三）；510：科幻想象的历史和哲学视野（一）。",
+          "place": "重庆大学A校园主教学楼",
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "19:00起",
+          "title": "晚餐",
+          "text": "原图只列开始时间，地点以会务安排为准。",
+          "place": null,
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "仅在明确不参加相应场次时",
+          "title": "沙坪坝模块／夜景",
+          "text": "白公馆、渣滓洞受日间开放限制，不能在18:20散会后再安排；磁器口或夜景视餐后时间、体力与次日08:30会议取舍。",
+          "place": "重庆磁器口古镇",
+          "status": "可选",
+          "stamp": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-18",
+      "title": "会议 · 会后取行李 · 晚间进武隆",
+      "color": "#b66133",
+      "stay": "武隆｜优先仙女山街道／游客接待中心附近｜计划 / 未订",
+      "places": [
+        "IU酒店（重庆沙坪坝高铁站三峡广场店）",
+        "重庆大学A校园主教学楼",
+        "重庆大学A校园博雅书院报告厅",
+        "重庆磁器口古镇",
+        "IU酒店（重庆沙坪坝高铁站三峡广场店）",
+        "重庆西站",
+        "武隆南站",
+        "仙女山游客接待中心"
+      ],
+      "note": "08:30起两轮分论坛；11:30—12:30在博雅书院报告厅闭幕，12:30—13:30午餐。下午可按实际散会和已购车次安排取行李、重庆西站与赴武隆转场；磁器口仅在时间充分时可选。",
+      "items": [
+        {
+          "t": "08:30会议前",
+          "title": "退房 · 寄存全部行李 · 步行去重大",
+          "text": "提前退房并确认可寄存全部行李至会后，前往主教分论坛会场。IU到博雅学院的25分钟仅为参考，主教会场入口和找楼另留时间。",
+          "place": "IU酒店（重庆沙坪坝高铁站三峡广场店）",
+          "status": "住宿未订 / 寄存需确认",
+          "stamp": null
+        },
+        {
+          "t": "08:30—09:50",
+          "title": "分论坛15—17（并行）",
+          "text": "主教512：智能影音与媒介新理论（二）；510：创意写作与文化产业（一）；506：科幻想象的历史和哲学视野（二）。",
+          "place": "重庆大学A校园主教学楼",
+          "status": "会议日程",
+          "stamp": "2026-10-18T08:30:00+08:00"
+        },
+        {
+          "t": "09:50—10:00",
+          "title": "茶歇",
+          "text": "休息与换场。",
+          "place": null,
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "10:00—11:10",
+          "title": "分论坛18—19（并行）",
+          "text": "主教512：科幻想象的历史和哲学视野（三）；510：创意写作与文化产业（二）。",
+          "place": "重庆大学A校园主教学楼",
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "11:10—11:30",
+          "title": "茶歇 · 前往闭幕式",
+          "text": "从主教前往博雅书院报告厅，预留步行时间。",
+          "place": "重庆大学A校园博雅书院报告厅",
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "11:30—12:30",
+          "title": "闭幕式",
+          "text": "主持人张泰旗；“青年科幻研究表彰计划”颁奖仪式；姜振宇作大会总结。",
+          "place": "重庆大学A校园博雅书院报告厅",
+          "status": "会议日程",
+          "stamp": "2026-10-18T11:30:00+08:00"
+        },
+        {
+          "t": "12:30—13:30",
+          "title": "午餐",
+          "text": "午餐后可开始会后转场；如不参加午餐，仍须核对实际散会与取行李安排。",
+          "place": null,
+          "status": "会议日程",
+          "stamp": null
+        },
+        {
+          "t": "午餐后且距高铁仍有充分余量",
+          "title": "沙坪坝轻量模块｜磁器口",
+          "text": "磁器口只是可选项。必须先确认仍能返回住宿地取行李，并为前往重庆西站、安检和候车保留充分余量；任何不确定都直接取消。",
+          "place": "重庆磁器口古镇",
+          "status": "可选 / 不得影响高铁",
+          "stamp": null
+        },
+        {
+          "t": "会后按已购车次倒推",
+          "title": "取行李 → 重庆西站",
+          "text": "带全部行李离开沙坪坝，不再搬回渝中。具体出发时间由会议结束时刻和已购高铁共同决定；地面交通、进站安检和候车均单独留缓冲。",
+          "place": "重庆西站",
+          "status": "关键转场 / 车次待确认",
+          "stamp": null
+        },
+        {
+          "t": "晚间 · 待12306放票",
+          "title": "重庆西 → 武隆南",
+          "text": "优先寻找会议结束后仍有充分缓冲的晚间列车，目的站必须是武隆南站。若重庆西没有合适班次，再比较重庆东或重庆北，不提前硬编码班次、票价和出发站。",
+          "place": "武隆南站",
+          "status": "高铁未订",
+          "stamp": null
+        },
+        {
+          "t": "抵达后",
+          "title": "武隆南 → 武隆住宿地",
+          "text": "夜间公共旅游接驳可能已结束。订房前确认出租车、网约车或酒店接站；优先住仙女山街道／游客接待中心附近，为19日早晨节省转场，无法可靠上山时改住武隆城区。",
+          "place": "仙女山游客接待中心",
+          "status": "住宿未订 / 夜间接驳待确认",
+          "stamp": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-19",
+      "title": "武隆完整日 · 天生三桥为核心",
+      "color": "#198471",
+      "stay": "小什字附近／优先橙栖酒店｜计划 / 未订",
+      "places": [
+        "仙女山游客接待中心",
+        "武隆天生三桥",
+        "武隆龙水峡地缝",
+        "仙女山游客接待中心",
+        "仙女山国家森林公园",
+        "仙女山游客接待中心",
+        "武隆南站",
+        "重庆小什字地铁站",
+        "橙栖酒店（重庆解放碑步行街洪崖洞店）"
+      ],
+      "note": "醒来已经在武隆，天生三桥是核心，天生三桥＋龙水峡地缝为首选组合；仙女山只在返程高铁、天气、接驳和体力允许时追加。傍晚由武隆南返重庆，目标约20:00—20:30回到渝中。",
+      "items": [
+        {
+          "t": "早晨",
+          "title": "退房／寄存行李 · 前往游客接待中心",
+          "text": "若住仙女山街道，优先在酒店或游客接待中心附近寄存大件行李后轻装游览；若住武隆城区，则把上山交通提前计入。寄存地点、开放时间和返程取行李方式必须在订房时确认。",
+          "place": "仙女山游客接待中心",
+          "status": "住宿与寄存待确认",
+          "stamp": null
+        },
+        {
+          "t": "上午优先",
+          "title": "天生三桥",
+          "text": "全天第一核心景点。正常完成天然桥、天坑与天福官驿，不为了凑齐三景而赶路；门票、景区交通、开放和雨天管控以当天公告为准。",
+          "place": "武隆天生三桥",
+          "status": "核心 / 需购票",
+          "stamp": null
+        },
+        {
+          "t": "中午至下午前段",
+          "title": "龙水峡地缝",
+          "text": "作为首选第二景点加入，预留景区车、排队、午餐和湿滑步道缓冲。强降雨、临时关闭、接驳延迟或体力不足时，优先保证天生三桥和返程高铁。",
+          "place": "武隆龙水峡地缝",
+          "status": "优先 / 需购票",
+          "stamp": null
+        },
+        {
+          "t": "下午视现场决定",
+          "title": "仙女山国家森林公园",
+          "text": "第三优先，仅在当天时间、天气、接驳和体力允许时追加。若会导致取行李或前往武隆南过晚，主动删除仙女山，不把三景写成必须全部完成。",
+          "place": "仙女山国家森林公园",
+          "status": "可选 / 需购票",
+          "stamp": null
+        },
+        {
+          "t": "按已购返程车次倒推",
+          "title": "取行李 · 前往武隆南站",
+          "text": "本日不设固定分钟判定线。真正硬约束是不能错过已购返渝高铁；从开车时间反推景区撤离、取行李、下山、进站和候车，并给不按点发车的接驳留余量。",
+          "place": "武隆南站",
+          "status": "关键衔接",
+          "stamp": null
+        },
+        {
+          "t": "傍晚 · 待12306放票",
+          "title": "武隆南 → 重庆 → 小什字附近入住",
+          "text": "尽量选择能在约20:00—20:30回到渝中区的班次，但具体车次、重庆到达站和市内转场均待确认。到店后办理入住，19、20日晚住宿目前均未订。",
+          "place": "橙栖酒店（重庆解放碑步行街洪崖洞店）",
+          "status": "高铁与酒店未订",
+          "stamp": null
+        },
+        {
+          "t": "抵达较早且有余力",
+          "title": "渝中夜游｜只选1—2处",
+          "text": "可从解放碑、洪崖洞、千厮门大桥、朝天门中选1—2处；若17或18日已经看过洪崖洞，就改为解放碑、朝天门或夜宵散步。抵达太晚则直接休息。",
+          "place": "重庆解放碑",
+          "status": "可选",
+          "stamp": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "title": "南山历史 · 古道下行 · 开埠老街",
+      "color": "#6f8734",
+      "stay": "小什字附近／优先橙栖酒店｜计划 / 未订",
+      "places": [
+        "橙栖酒店（重庆解放碑步行街洪崖洞店）",
+        "重庆抗战遗址博物馆",
+        "重庆黄桷垭老街",
+        "重庆黄葛古道",
+        "重庆龙门浩老街",
+        "重庆下浩里",
+        "橙栖酒店（重庆解放碑步行街洪崖洞店）"
+      ],
+      "note": "从战时重庆、山上聚落与古代川黔通道，一路以下山为主走到开埠老街。主线不含老君洞；南山植物园和一棵树只作备选，不破坏黄桷垭—黄葛古道—龙门浩的连续方向。",
+      "items": [
+        {
+          "t": "08:00—08:40",
+          "title": "早餐 · 整理轻装",
+          "text": "这一天台阶和步行较多，正常吃早餐；大件行李留在计划入住的小什字附近酒店；是否可寄存须在订房时确认。",
+          "place": null,
+          "status": "建议",
+          "stamp": null
+        },
+        {
+          "t": "08:40—09:20左右",
+          "title": "橙栖酒店 → 重庆抗战遗址博物馆",
+          "text": "南山公共交通转乘耗时且上坡，早上这段优先打车；40分钟只是规划窗口，实际用时按酒店位置、拥堵和入口重算。",
+          "place": "重庆抗战遗址博物馆",
+          "status": "建议打车",
+          "stamp": null
+        },
+        {
+          "t": "09:20—11:20",
+          "title": "重庆抗战遗址博物馆",
+          "text": "集中看抗战时期重庆作为战时首都留下的建筑与遗址。官方2026年名录目前列淡季9:00—17:30、闭馆前一小时停止售票，成人票18元并提供预约渠道；票价、预约与临时闭馆以当天最新公告为准。",
+          "place": "重庆抗战遗址博物馆",
+          "status": "需购票 / 复核开放",
+          "stamp": null
+        },
+        {
+          "t": "11:20—11:50",
+          "title": "前往黄桷垭老街",
+          "text": "在南山内部横向移动，具体公交或打车路线当天查询；不要先下山再折返。",
+          "place": "重庆黄桷垭老街",
+          "status": "建议",
+          "stamp": null
+        },
+        {
+          "t": "11:50—13:30",
+          "title": "黄桷垭老街 · 午饭",
+          "text": "先吃饭，再看山上聚落与老街。南岸区官方资料列老街全长约600米，有175栋巴渝民居和文物故居；它与下午古道自然衔接。",
+          "place": "重庆黄桷垭老街",
+          "status": "建议",
+          "stamp": null
+        },
+        {
+          "t": "13:30—15:30左右",
+          "title": "黄葛古道 · 向山下走",
+          "text": "官方资料列古道全长约3.6公里，上接黄桷垭、下有通向龙门浩与海棠溪的支线。选择下山方向仍有连续石阶；放慢速度，按现场标识走向龙门浩支线，雨天缩短或取消。",
+          "place": "重庆黄葛古道",
+          "status": "建议",
+          "stamp": null
+        },
+        {
+          "t": "15:30—16:10",
+          "title": "前往龙门浩 · 途中休息",
+          "text": "把这段作为找出口、补水和交通衔接缓冲，不追求固定到达分钟数；若古道出口不在预想位置，用地图重新定位。",
+          "place": "重庆龙门浩老街",
+          "status": "缓冲",
+          "stamp": null
+        },
+        {
+          "t": "16:10—18:20",
+          "title": "龙门浩老街",
+          "text": "从白天逛到暮色，观察开埠、抗战与巴渝城市建筑层叠；台阶较多，优先连续路线而非逐栋打卡。",
+          "place": "重庆龙门浩老街",
+          "status": "建议",
+          "stamp": null
+        },
+        {
+          "t": "18:20—20:30左右",
+          "title": "下浩里 · 晚饭",
+          "text": "下浩里与龙门浩连续游览。吃完饭回小什字附近酒店，不再为了老君洞、一棵树或植物园折返山腰。",
+          "place": "重庆下浩里",
+          "status": "建议",
+          "stamp": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-21",
+      "title": "三峡博物馆 · 鹅岭下行线 · 返程",
+      "color": "#b08b24",
+      "stay": "当晚返程｜航班信息已确认",
+      "places": [
+        "橙栖酒店（重庆解放碑步行街洪崖洞店）",
+        "重庆中国三峡博物馆",
+        "重庆人民广场",
+        "重庆人民大礼堂",
+        "重庆鹅岭公园",
+        "重庆鹅岭二厂文创公园",
+        "重庆李子坝单轨穿楼观景平台",
+        "重庆李子坝地铁站",
+        "重庆曾家岩地铁站",
+        "重庆中国三峡博物馆",
+        "重庆曾家岩地铁站",
+        "重庆江北国际机场 T3",
+        "南京禄口国际机场 T1"
+      ],
+      "note": "08:10从计划入住的橙栖酒店退房并带全部行李离开，只在三峡博物馆／曾家岩区域寄存一次。午饭后打车上鹅岭，再按鹅岭公园—鹅岭二厂—李子坝顺坡下行；约15:30乘2号线回曾家岩取行李，转10号线去江北T3，目标17:00左右到机场。",
+      "items": [
+        {
+          "t": "08:10—08:40左右",
+          "title": "橙栖退房 · 携行李前往三峡博物馆",
+          "text": "退房后不再回酒店，带行李一次性离开；这段按约30分钟规划，实际打车或公共交通方式当天查询。",
+          "place": "重庆中国三峡博物馆",
+          "status": "住宿未订 / 退房日",
+          "stamp": null
+        },
+        {
+          "t": "08:40—09:00左右",
+          "title": "抵达三峡博物馆／曾家岩 · 寄存行李",
+          "text": "官方可确认博物馆入口附近设有自动寄存处及大件寄存服务，但柜子尺寸、收费、开放时段和当天余量以现场为准。旅行者曾反馈楼梯下方有约5元、可存至17:30左右的馆外寄存点；这只是当天需核实的备选，不作为官方承诺。",
+          "place": "重庆中国三峡博物馆",
+          "status": "馆内官方信息 / 馆外经验待核实",
+          "stamp": null
+        },
+        {
+          "t": "09:00—11:15",
+          "title": "重庆中国三峡博物馆",
+          "text": "至少留约两小时，重点看巴渝文化、三峡与城市历史展陈。最新官方公告已取消预约，凭有效身份证件入馆；开放和临展仍以出行日前公告为准。",
+          "place": "重庆中国三峡博物馆",
+          "status": "免费 / 带证件",
+          "stamp": null
+        },
+        {
+          "t": "11:15—11:45",
+          "title": "人民广场＋人民大礼堂",
+          "text": "两处与博物馆相邻，作为连续节点处理；主要看人民广场和大礼堂外观，不进入耗时较长的收费参观。",
+          "place": "重庆人民大礼堂",
+          "status": "建议",
+          "stamp": null
+        },
+        {
+          "t": "11:45—12:30",
+          "title": "附近午饭",
+          "text": "在博物馆、人民广场一带就近解决；12:30按时离开，不为餐厅跨区折返。",
+          "place": "重庆人民广场",
+          "status": "建议",
+          "stamp": null
+        },
+        {
+          "t": "12:30—12:50左右",
+          "title": "直接打车去鹅岭公园",
+          "text": "最后一天用打车换取时间和体力，不为省少量车费设计复杂轨道绕行；拥堵时优先缩短鹅岭停留。",
+          "place": "重庆鹅岭公园",
+          "status": "建议打车",
+          "stamp": null
+        },
+        {
+          "t": "12:50—13:35",
+          "title": "鹅岭公园",
+          "text": "短时看园林与高处视野，不绕远路逐点打卡；13:35开始向鹅岭二厂步行。",
+          "place": "重庆鹅岭公园",
+          "status": "主线",
+          "stamp": null
+        },
+        {
+          "t": "13:35—14:30",
+          "title": "步行到鹅岭二厂 · 游览",
+          "text": "公园到二厂连续步行，保留找路和局部坡度缓冲；园区停留到14:30左右。",
+          "place": "重庆鹅岭二厂文创公园",
+          "status": "主线 / 步行",
+          "stamp": null
+        },
+        {
+          "t": "14:30—15:00左右",
+          "title": "顺坡下行前往李子坝",
+          "text": "按地图选择下行路线，不建议反向爬坡；仍可能有台阶和不平路面，雨天、拖累或封路时改为短程打车。",
+          "place": "重庆李子坝单轨穿楼观景平台",
+          "status": "步行 / 现场调整",
+          "stamp": null
+        },
+        {
+          "t": "15:00—15:30",
+          "title": "李子坝观景平台",
+          "text": "看单轨穿楼并休息，15:30必须离开；不要为等待特定列车或机位推迟返程。",
+          "place": "重庆李子坝单轨穿楼观景平台",
+          "status": "主线",
+          "stamp": null
+        },
+        {
+          "t": "约15:30—15:45",
+          "title": "李子坝乘2号线 → 曾家岩",
+          "text": "从李子坝站乘2号线直接到曾家岩站；进站、候车和从站口步行回博物馆的实际时间当天复核。",
+          "place": "重庆曾家岩地铁站",
+          "status": "公共交通",
+          "stamp": null
+        },
+        {
+          "t": "15:45—16:00左右",
+          "title": "在上午同一寄存点取行李",
+          "text": "不返回小什字，不去观音桥，也不安排二次寄存。若步行或领取变慢，可顺延到16:15，但不再增加景点。",
+          "place": "重庆中国三峡博物馆",
+          "status": "关键衔接",
+          "stamp": null
+        },
+        {
+          "t": "约16:00—16:15出发",
+          "title": "曾家岩乘10号线 → 江北机场T3",
+          "text": "取行李后回曾家岩站，直接乘10号线前往江北机场T3；以当天列车与航班要求为准。",
+          "place": "重庆江北国际机场 T3",
+          "status": "公共交通 / 已确认航站楼",
+          "stamp": null
+        },
+        {
+          "t": "约17:00前后",
+          "title": "抵达重庆江北机场T3",
+          "text": "目标为19:10起飞前预留约两小时办理值机、托运、安检和前往登机口；若下午行程延误，先删景点，不压缩机场缓冲。",
+          "place": "重庆江北国际机场 T3",
+          "status": "返程缓冲",
+          "stamp": null
+        },
+        {
+          "t": "19:10—21:15",
+          "title": "3U8045 · 重庆江北T3 → 南京禄口T1",
+          "text": "航班信息已按你提供的截图录入；到达南京后的接送或公共交通另行确认，航班动态以四川航空通知为准。",
+          "place": "南京禄口国际机场 T1",
+          "status": "已确认",
+          "stamp": "2026-10-21T19:10:00+08:00"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    [
+      "三峡博物馆：取消预约公告",
+      "https://www.3gmuseum.cn/web/article/1430010139317059584/web/content_1430010139317059584.html"
+    ],
+    [
+      "三峡博物馆：参观须知（含停止入馆时间）",
+      "https://www.3gmuseum.cn/web/article/1430010416905293824/web/content_1430010416905293824.html"
+    ],
+    [
+      "三峡博物馆：便民服务与自动寄存处",
+      "https://www.3gmuseum.cn/web/column/col5009756.html"
+    ],
+    [
+      "重庆书城：2025年国泰广场B2过渡卖场报道",
+      "https://www.cqnews.net/1/detail/1422866538635137024/app/content_1422866538635137024.html"
+    ],
+    [
+      "重庆大学博雅学院：联系地址",
+      "https://lac.cqu.edu.cn/xygk/lxxx.htm"
+    ],
+    [
+      "白公馆：重庆市政府2026年介绍与开放时间",
+      "https://www.cq.gov.cn/zjcq/cycq/jplyxl/dsy/hyzj/202608/t20260826_15982440.html"
+    ],
+    [
+      "磁器口古镇：重庆市政府2026年交通信息",
+      "https://www.cq.gov.cn/zjcq/cycq/jplyxl/dsy/dsjp/202608/t20260826_15982326.html"
+    ],
+    [
+      "T003、T198近期运营与串联景点：重庆市政府2026年9月信息",
+      "https://cq.gov.cn/ywdt/bmts/202609/t20260907_16043757.html"
+    ],
+    [
+      "白公馆、渣滓洞预约参观提示（具体规则临行前复核）",
+      "https://admin.cq.gov.cn/ywdt/bmts/202409/t20240910_13613256.html"
+    ],
+    [
+      "洪崖洞亮灯时间季节调整案例：重庆日报2026年4月报道",
+      "https://www.cqrb.cn/shishi/2026-04-11/2632582_pc.html"
+    ],
+    [
+      "重庆抗战遗址博物馆：南岸区2026年A级景区名录",
+      "https://www.cqna.gov.cn/bm/qwhlyw/zwgk_59968/zfxxgkml/jczwgkwlw/ly/ggfw_407286/gglyjgml/202601/t20260130_15368257.html"
+    ],
+    [
+      "黄桷垭老街：南岸区官方介绍",
+      "https://www.cqna.gov.cn/zjna/ns/hlns/nsjd/202601/t20260129_15362701.html"
+    ],
+    [
+      "黄葛古道：重庆市政府介绍",
+      "https://www.cq.gov.cn/ywdt/jrcq/202101/t20210131_8862580.html"
+    ],
+    [
+      "下浩里：南岸区官方介绍",
+      "https://www.cqna.gov.cn/zwxx_254/bmjz/202305/t20230524_11993865.html"
+    ],
+    [
+      "武隆区A级旅游景区名录（2026年版）：门票与开放时间",
+      "https://cqwl.gov.cn/bmjz_sites/bm/wlw/zwgk_98942/zfxxgkml/jczwgkzl/ggwhfwly/ggfw/ggwljgmd/202601/t20260104_15286062.html"
+    ],
+    [
+      "武隆南站公交与旅游专线运行信息（班次仍需出行日复核）",
+      "https://cqrb.cn/contry/dy41/2025-07-03/2343308_pc.html"
+    ],
+    [
+      "武隆景区因天气临时停运与恢复的官方提示案例",
+      "https://www.cq.gov.cn/ywdt/bmts/202606/t20260608_15737519.html"
+    ]
+  ]
+};
       const ROUTES = {
-        "2026-10-15": [
-          {
-            label: "已核对轨道路线｜T3—红土地—小什字—橙栖酒店",
-            places: ["重庆江北国际机场 T3航站楼4号口", "重庆红土地地铁站", "重庆小什字地铁站", "橙栖酒店（重庆解放碑步行街洪崖洞店）"],
-          },
-        ],
-        "2026-10-16": [
-          {
-            label: "高处入口—山城步道—十八梯",
-            places: ["重庆佳实养老院", "重庆山城步道", "重庆十八梯传统风貌区D区"],
-          },
-          {
-            label: "十八梯—解放碑—魁星楼—戴家巷",
-            places: ["重庆十八梯传统风貌区D区", "重庆解放碑", "重庆魁星楼", "重庆戴家巷"],
-          },
-          {
-            label: "戴家巷—橙栖取行李",
-            places: ["重庆戴家巷", "橙栖酒店（重庆解放碑步行街洪崖洞店）"],
-          },
-          {
-            label: "已核对51分钟｜橙栖—IU酒店",
-            places: ["橙栖酒店（重庆解放碑步行街洪崖洞店）", "IU酒店（重庆沙坪坝高铁站三峡广场店）"],
-          },
-          {
-            label: "已核对25分钟步行｜IU—博雅学院",
-            places: ["IU酒店（重庆沙坪坝高铁站三峡广场店）", "重庆大学A区博雅书院"],
-          },
-        ],
-        "2026-10-17": [
-          {
-            label: "酒店—会议主地点｜步行约25分钟",
-            places: ["IU酒店（重庆沙坪坝高铁站三峡广场店）", "重庆大学A区博雅书院"],
-          },
-          {
-            label: "模块A｜约3小时（开放与预约临行前复核）",
-            places: ["重庆大学A区博雅书院", "重庆白公馆", "重庆渣滓洞监狱旧址"],
-          },
-          {
-            label: "模块B｜约2—3小时",
-            places: ["重庆大学A区博雅书院", "重庆磁器口古镇"],
-          },
-          {
-            label: "A完成后仍有余力｜渣滓洞顺接磁器口",
-            places: ["重庆渣滓洞监狱旧址", "重庆磁器口古镇"],
-          },
-          {
-            label: "夜景项目｜只考虑17日晚",
-            places: ["重庆大学A区博雅书院", "重庆大剧院江滩", "重庆千厮门嘉陵江大桥", "重庆洪崖洞", "IU酒店（重庆沙坪坝高铁站三峡广场店）"],
-          },
-        ],
-        "2026-10-18": [
-          {
-            label: "住宿参考点—会议主地点｜实际住宿确定后重算",
-            places: ["IU酒店（重庆沙坪坝高铁站三峡广场店）", "重庆大学A区博雅书院"],
-          },
-          {
-            label: "磁器口轻量模块｜仅在不影响高铁时",
-            places: ["重庆大学A区博雅书院", "重庆磁器口古镇"],
-          },
-          {
-            label: "会后取全部行李—重庆西站",
-            places: ["重庆大学A区博雅书院", "IU酒店（重庆沙坪坝高铁站三峡广场店）", "重庆西站"],
-          },
-          {
-            label: "武隆南—夜间住宿地｜接驳需预先确认",
-            places: ["武隆南站", "仙女山游客接待中心"],
-          },
-        ],
-        "2026-10-19": [
-          {
-            label: "住宿区域—天生三桥—龙水峡地缝",
-            places: ["仙女山游客接待中心", "武隆天生三桥", "武隆龙水峡地缝"],
-          },
-          {
-            label: "仙女山弹性段｜有余力才加入",
-            places: ["武隆龙水峡地缝", "仙女山游客接待中心", "仙女山国家森林公园"],
-          },
-          {
-            label: "取行李—武隆南站｜按返程车次倒推",
-            places: ["仙女山游客接待中心", "武隆南站"],
-          },
-          {
-            label: "抵渝入住后的可选夜游",
-            places: ["橙栖酒店（重庆解放碑步行街洪崖洞店）", "重庆解放碑", "重庆洪崖洞"],
-          },
-        ],
-        "2026-10-20": [
-          {
-            label: "小什字附近—南山｜优先打车",
-            places: ["橙栖酒店（重庆解放碑步行街洪崖洞店）", "重庆抗战遗址博物馆"],
-          },
-          {
-            label: "南山内部转场",
-            places: ["重庆抗战遗址博物馆", "重庆黄桷垭老街"],
-          },
-          {
-            label: "黄桷垭—黄葛古道—江边下行主线",
-            places: ["重庆黄桷垭老街", "重庆黄葛古道", "重庆龙门浩老街", "重庆下浩里"],
-          },
-          {
-            label: "下浩里—小什字附近住宿",
-            places: ["重庆下浩里", "橙栖酒店（重庆解放碑步行街洪崖洞店）"],
-          },
-        ],
-        "2026-10-21": [
-          {
-            label: "退房后携行李到博物馆",
-            places: ["橙栖酒店（重庆解放碑步行街洪崖洞店）", "重庆中国三峡博物馆"],
-          },
-          {
-            label: "博物馆—人民广场—大礼堂",
-            places: ["重庆中国三峡博物馆", "重庆人民广场", "重庆人民大礼堂"],
-          },
-          {
-            label: "打车上鹅岭",
-            places: ["重庆人民大礼堂", "重庆鹅岭公园"],
-          },
-          {
-            label: "鹅岭公园—二厂—李子坝下行线",
-            places: ["重庆鹅岭公园", "重庆鹅岭二厂文创公园", "重庆李子坝单轨穿楼观景平台"],
-          },
-          {
-            label: "2号线回曾家岩，在上午同一地点取行李",
-            places: ["重庆李子坝地铁站", "重庆曾家岩地铁站", "重庆中国三峡博物馆"],
-          },
-          {
-            label: "取行李后回曾家岩，10号线直达T3",
-            places: ["重庆中国三峡博物馆", "重庆曾家岩地铁站", "重庆江北国际机场 T3"],
-          },
-        ],
-      };
+  "2026-10-15": [
+    {
+      "label": "已核对轨道路线｜T3—红土地—小什字—橙栖酒店",
+      "places": [
+        "重庆江北国际机场 T3航站楼4号口",
+        "重庆红土地地铁站",
+        "重庆小什字地铁站",
+        "橙栖酒店（重庆解放碑步行街洪崖洞店）"
+      ]
+    }
+  ],
+  "2026-10-16": [
+    {
+      "label": "高处入口—山城步道—十八梯",
+      "places": [
+        "重庆佳实养老院",
+        "重庆山城步道",
+        "重庆十八梯传统风貌区D区"
+      ]
+    },
+    {
+      "label": "十八梯—解放碑—魁星楼—戴家巷",
+      "places": [
+        "重庆十八梯传统风貌区D区",
+        "重庆解放碑",
+        "重庆魁星楼",
+        "重庆戴家巷"
+      ]
+    },
+    {
+      "label": "戴家巷—橙栖取行李",
+      "places": [
+        "重庆戴家巷",
+        "橙栖酒店（重庆解放碑步行街洪崖洞店）"
+      ]
+    },
+    {
+      "label": "已核对51分钟｜橙栖—IU酒店",
+      "places": [
+        "橙栖酒店（重庆解放碑步行街洪崖洞店）",
+        "IU酒店（重庆沙坪坝高铁站三峡广场店）"
+      ]
+    },
+    {
+      "label": "放下行李后去报到酒店｜实际用时待查",
+      "places": [
+        "IU酒店（重庆沙坪坝高铁站三峡广场店）",
+        "重庆丽苑维景国际大酒店"
+      ]
+    }
+  ],
+  "2026-10-17": [
+    {
+      "label": "开幕式—主教分论坛会场",
+      "places": [
+        "重庆大学A校园博雅书院报告厅",
+        "重庆大学A校园主教学楼"
+      ]
+    },
+    {
+      "label": "酒店—会议主地点｜步行约25分钟",
+      "places": [
+        "IU酒店（重庆沙坪坝高铁站三峡广场店）",
+        "重庆大学A区博雅书院"
+      ]
+    },
+    {
+      "label": "模块A｜约3小时（开放与预约临行前复核）",
+      "places": [
+        "重庆大学A区博雅书院",
+        "重庆白公馆",
+        "重庆渣滓洞监狱旧址"
+      ]
+    },
+    {
+      "label": "模块B｜约2—3小时",
+      "places": [
+        "重庆大学A区博雅书院",
+        "重庆磁器口古镇"
+      ]
+    },
+    {
+      "label": "A完成后仍有余力｜渣滓洞顺接磁器口",
+      "places": [
+        "重庆渣滓洞监狱旧址",
+        "重庆磁器口古镇"
+      ]
+    },
+    {
+      "label": "夜景项目｜只考虑17日晚",
+      "places": [
+        "重庆大学A区博雅书院",
+        "重庆大剧院江滩",
+        "重庆千厮门嘉陵江大桥",
+        "重庆洪崖洞",
+        "IU酒店（重庆沙坪坝高铁站三峡广场店）"
+      ]
+    }
+  ],
+  "2026-10-18": [
+    {
+      "label": "主教分论坛会场—闭幕式",
+      "places": [
+        "重庆大学A校园主教学楼",
+        "重庆大学A校园博雅书院报告厅"
+      ]
+    },
+    {
+      "label": "住宿参考点—主教会议室｜交通与找楼时间另查",
+      "places": [
+        "IU酒店（重庆沙坪坝高铁站三峡广场店）",
+        "重庆大学A校园主教学楼"
+      ]
+    },
+    {
+      "label": "磁器口轻量模块｜仅在不影响高铁时",
+      "places": [
+        "重庆大学A区博雅书院",
+        "重庆磁器口古镇"
+      ]
+    },
+    {
+      "label": "会后取全部行李—重庆西站",
+      "places": [
+        "重庆大学A区博雅书院",
+        "IU酒店（重庆沙坪坝高铁站三峡广场店）",
+        "重庆西站"
+      ]
+    },
+    {
+      "label": "武隆南—夜间住宿地｜接驳需预先确认",
+      "places": [
+        "武隆南站",
+        "仙女山游客接待中心"
+      ]
+    }
+  ],
+  "2026-10-19": [
+    {
+      "label": "住宿区域—天生三桥—龙水峡地缝",
+      "places": [
+        "仙女山游客接待中心",
+        "武隆天生三桥",
+        "武隆龙水峡地缝"
+      ]
+    },
+    {
+      "label": "仙女山弹性段｜有余力才加入",
+      "places": [
+        "武隆龙水峡地缝",
+        "仙女山游客接待中心",
+        "仙女山国家森林公园"
+      ]
+    },
+    {
+      "label": "取行李—武隆南站｜按返程车次倒推",
+      "places": [
+        "仙女山游客接待中心",
+        "武隆南站"
+      ]
+    },
+    {
+      "label": "抵渝入住后的可选夜游",
+      "places": [
+        "橙栖酒店（重庆解放碑步行街洪崖洞店）",
+        "重庆解放碑",
+        "重庆洪崖洞"
+      ]
+    }
+  ],
+  "2026-10-20": [
+    {
+      "label": "小什字附近—南山｜优先打车",
+      "places": [
+        "橙栖酒店（重庆解放碑步行街洪崖洞店）",
+        "重庆抗战遗址博物馆"
+      ]
+    },
+    {
+      "label": "南山内部转场",
+      "places": [
+        "重庆抗战遗址博物馆",
+        "重庆黄桷垭老街"
+      ]
+    },
+    {
+      "label": "黄桷垭—黄葛古道—江边下行主线",
+      "places": [
+        "重庆黄桷垭老街",
+        "重庆黄葛古道",
+        "重庆龙门浩老街",
+        "重庆下浩里"
+      ]
+    },
+    {
+      "label": "下浩里—小什字附近住宿",
+      "places": [
+        "重庆下浩里",
+        "橙栖酒店（重庆解放碑步行街洪崖洞店）"
+      ]
+    }
+  ],
+  "2026-10-21": [
+    {
+      "label": "退房后携行李到博物馆",
+      "places": [
+        "橙栖酒店（重庆解放碑步行街洪崖洞店）",
+        "重庆中国三峡博物馆"
+      ]
+    },
+    {
+      "label": "博物馆—人民广场—大礼堂",
+      "places": [
+        "重庆中国三峡博物馆",
+        "重庆人民广场",
+        "重庆人民大礼堂"
+      ]
+    },
+    {
+      "label": "打车上鹅岭",
+      "places": [
+        "重庆人民大礼堂",
+        "重庆鹅岭公园"
+      ]
+    },
+    {
+      "label": "鹅岭公园—二厂—李子坝下行线",
+      "places": [
+        "重庆鹅岭公园",
+        "重庆鹅岭二厂文创公园",
+        "重庆李子坝单轨穿楼观景平台"
+      ]
+    },
+    {
+      "label": "2号线回曾家岩，在上午同一地点取行李",
+      "places": [
+        "重庆李子坝地铁站",
+        "重庆曾家岩地铁站",
+        "重庆中国三峡博物馆"
+      ]
+    },
+    {
+      "label": "取行李后回曾家岩，10号线直达T3",
+      "places": [
+        "重庆中国三峡博物馆",
+        "重庆曾家岩地铁站",
+        "重庆江北国际机场 T3"
+      ]
+    }
+  ]
+};
       const RAIL_ROUTES = {
         "2026-10-18": "重庆西 → 武隆南｜晚间车次待12306确认",
         "2026-10-19": "武隆南 → 重庆｜傍晚车次待12306确认",
@@ -1846,7 +2096,7 @@
       }
       const cityRoutes = [
         { day: 15, keys: ["airport", "orange"], dash: "8 7" },
-        { day: 16, keys: ["orange", "iu", "cqu"] },
+        { day: 16, keys: ["orange", "iu"] },
         { day: 18, keys: ["iu", "cqu", "iu", "west"], dash: "8 7" },
         { day: 20, keys: ["orange", "huangjueya", "longmenhao", "orange"] },
         { day: 21, keys: ["orange", "museum", "eling", "liziba", "museum", "airport"] },
@@ -1886,7 +2136,7 @@
       </svg>`;
       document.querySelector("#overview-map").innerHTML = `
         <div class="overview-geo">
-          <section class="geo-panel" id="city-scale-map"><h3>主城区 · 北向上比例图</h3>${citySvg}<p>相同比例尺下按公开地图经纬度投影；直线只显示节点间的大致方向，不代表道路、轨道或实际步行路径。</p></section>
+          <section class="geo-panel" id="city-scale-map"><h3>主城区 · 北向上比例图</h3>${citySvg}<p>相同比例尺下按公开地图经纬度投影；16日报到酒店见分日导航。直线只显示节点间的大致方向，不代表道路、轨道或实际步行路径。</p></section>
           <section class="geo-panel" id="region-scale-map"><h3>重庆—武隆 · 北向上区域图</h3>${regionalSvg}<p>重庆西、武隆南、仙女山街道住宿区与小什字按同一比例尺投影；连接线不代表铁路或公路实际走向，夜间接驳与返渝车次仍须分段确认。</p></section>
         </div>
         <div class="geo-legend" aria-label="日期颜色图例">${Object.entries(MAP_COLORS).map(([d, c]) => `<span style="--route-color:${c}"><i></i>${d}日</span>`).join("")}</div>`;
@@ -1909,67 +2159,67 @@
         )
         .join("");
       const milestones = [
-        {
-          at: "2026-10-15T17:30:00+08:00",
-          kind: "已确认",
-          title: "MU2845 · 南京禄口T2出发",
-          note: "17:30起飞，19:50抵达重庆江北T3；航班动态以东方航空通知为准。",
-        },
-        {
-          at: "2026-10-15T19:50:00+08:00",
-          kind: "已确认",
-          title: "MU2845 · 抵达重庆江北T3",
-          note: "落地后只安排进城、入住与就近晚餐。",
-        },
-        {
-          at: "2026-10-16T18:00:00+08:00",
-          kind: "拟定锚点",
-          title: "博雅书院报到",
-          note: "完成渝中步行线并取行李后向西转场，目标18:00左右到达。",
-        },
-        {
-          at: "2026-10-16T18:30:00+08:00",
-          kind: "日期提醒",
-          title: "报到完成目标",
-          note: "计划18:30前办完；会务总窗口为14:00—20:00。",
-        },
-        {
-          at: "2026-10-17T00:00:00+08:00",
-          kind: "日期提醒",
-          title: "进入会议日",
-          note: "这是当天日期提醒；会议开始时间和报告场次待公布。",
-        },
-        {
-          at: "2026-10-18T00:00:00+08:00",
-          kind: "日期提醒",
-          title: "会议第二天",
-          note: "日程待公布，搬家与晚间游览可顺延。",
-        },
-        {
-          at: "2026-10-19T09:20:00+08:00",
-          kind: "建议",
-          title: "重庆抗战遗址博物馆",
-          note: "18日晚复核临时开放公告；目前官方名录未另列周一闭馆。",
-        },
-        {
-          at: "2026-10-20T00:00:00+08:00",
-          kind: "日期提醒",
-          title: "武隆当日往返",
-          note: "实际出发时间由往返高铁、景区接驳和最晚入园时间共同确定。",
-        },
-        {
-          at: "2026-10-21T09:00:00+08:00",
-          kind: "建议",
-          title: "三峡博物馆",
-          note: "凭有效身份证件入馆；临时公告出发前复核。",
-        },
-        {
-          at: "2026-10-21T19:10:00+08:00",
-          kind: "已确认",
-          title: "3U8045 · 重庆江北T3返程",
-          note: "19:10起飞，21:15抵达南京禄口T1；航班动态以四川航空通知为准。",
-        },
-      ];
+  {
+    "at": "2026-10-15T17:30:00+08:00",
+    "kind": "已确认",
+    "title": "MU2845 · 南京禄口T2出发",
+    "note": "17:30起飞，19:50抵达重庆江北T3；航班动态以东方航空通知为准。"
+  },
+  {
+    "at": "2026-10-15T19:50:00+08:00",
+    "kind": "已确认",
+    "title": "MU2845 · 抵达重庆江北T3",
+    "note": "落地后只安排进城、入住与就近晚餐。"
+  },
+  {
+    "at": "2026-10-16T18:00:00+08:00",
+    "kind": "拟定锚点",
+    "title": "丽苑维景国际大酒店报到",
+    "note": "注册地点来自会议日程；18:00为拟定到达时间，报到窗口14:00—20:00。"
+  },
+  {
+    "at": "2026-10-16T18:30:00+08:00",
+    "kind": "日期提醒",
+    "title": "报到完成目标",
+    "note": "计划18:30前办完；会务总窗口为14:00—20:00。"
+  },
+  {
+    "at": "2026-10-17T09:00:00+08:00",
+    "kind": "会议日程",
+    "title": "开幕式",
+    "note": "重庆大学A校园博雅书院报告厅；随后主旨演讲、合影与分论坛。"
+  },
+  {
+    "at": "2026-10-18T08:30:00+08:00",
+    "kind": "会议日程",
+    "title": "第二日分论坛开始",
+    "note": "A校园主教512、510、506；11:30闭幕式，午餐13:30结束。"
+  },
+  {
+    "at": "2026-10-19T00:00:00+08:00",
+    "kind": "日期提醒",
+    "title": "武隆完整游览日",
+    "note": "18日晚计划住武隆，19日天生三桥优先，傍晚返渝；具体高铁班次待确认。"
+  },
+  {
+    "at": "2026-10-20T09:20:00+08:00",
+    "kind": "建议",
+    "title": "重庆抗战遗址博物馆",
+    "note": "南山历史线；开放与门票出发前复核。"
+  },
+  {
+    "at": "2026-10-21T09:00:00+08:00",
+    "kind": "建议",
+    "title": "三峡博物馆",
+    "note": "凭有效身份证件入馆；临时公告出发前复核。"
+  },
+  {
+    "at": "2026-10-21T19:10:00+08:00",
+    "kind": "已确认",
+    "title": "3U8045 · 重庆江北T3返程",
+    "note": "19:10起飞，21:15抵达南京禄口T1；航班动态以四川航空通知为准。"
+  }
+];
       function tick() {
         let now = Date.now();
         let e = milestones.find((v) => Date.parse(v.at) > now);
